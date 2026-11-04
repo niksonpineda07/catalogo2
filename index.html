@@ -648,14 +648,14 @@
         import { getFirestore, collection, doc, setDoc, deleteDoc, onSnapshot, updateDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
         import { getStorage, ref as storageRef, uploadString, getDownloadURL, deleteObject } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
-        const FIREBASE_CONFIG_DEFAULT = {
-            apiKey: "PEGA_AQUI_TU_API_KEY",
-            authDomain: "PEGA_AQUI_TU_PROYECTO.firebaseapp.com",
-            projectId: "PEGA_AQUI_TU_PROJECT_ID",
-            storageBucket: "PEGA_AQUI_TU_PROYECTO.appspot.com",
-            messagingSenderId: "PEGA_AQUI_TU_SENDER_ID",
-            appId: "PEGA_AQUI_TU_APP_ID"
-        };
+        const firebaseConfig = {
+  apiKey: "AIzaSyCUvSM7GGrgJte3iI3otGmNZf_iDxembbU",
+  authDomain: "florens-store-25bdc.firebaseapp.com",
+  projectId: "florens-store-25bdc",
+  storageBucket: "florens-store-25bdc.firebasestorage.app",
+  messagingSenderId: "569202247262",
+  appId: "1:569202247262:web:8e29108ed179d4c83656cf"
+};
 
         let STORE_WHATSAPP = localStorage.getItem("florens_whatsapp") || "584220282751";
         const WHATSAPP_GREETING = "Hola! por favor detalles de la prenda.";
