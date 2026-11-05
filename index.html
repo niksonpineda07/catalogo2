@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>FLORENS STORE | Catálogo Exclusivo</title>
+    <meta name="description" content="Catálogo exclusivo de prendas FLORENS STORE. Selecciona tus favoritas y cotiza directamente por WhatsApp.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: {
+                            50: '#FCF9F6',
+                            100: '#F9F4EF',
+                            200: '#F3EAE0',
+                            300: '#E8D8C8',
+                            400: '#D5BFA8',
+                        },
+                        gold: {
+                            100: '#F9F1D8',
+                            200: '#F0DEAA',
+                            300: '#E5C675',
+                            400: '#D4AF37',
+                            500: '#C59B27',
+                            600: '#AA8018',
+                            700: '#866310',
+                            800: '#64490C',
+                            900: '#453208',
+                        },
+                        espresso: {
+                            800: '#3A2E29',
+                            900: '#241C18',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg-primary: #F9F4EF;
+            --gold-gradient: linear-gradient(135deg, #E2C15A 0%, #C59B27 45%, #9A7418 100%);
+            --gold-gradient-hover: linear-gradient(135deg, #EAD07A 0%, #D4AF37 50%, #AA821E 100%);
+        }
+
+        body {
+            background-color: #F9F4EF;
+            background-image: 
+                radial-gradient(at 15% 10%, rgba(212, 175, 55, 0.09) 0px, transparent 50%),
+                radial-gradient(at 85% 90%, rgba(197, 155, 39, 0.09) 0px, transparent 50%);
+            color: #241C18;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .btn-gold {
+            background: var(--gold-gradient);
+            color: #FFFFFF;
+            box-shadow: 0 6px 20px -4px rgba(170, 128, 24, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .btn-gold:hover {
+            background: var(--gold-gradient-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -4px rgba(170, 128, 24, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+        }
+        .btn-gold:active {
+            transform: scale(0.98);
+        }
+
+        .border-gold-subtle {
+            border-color: rgba(197, 155, 39, 0.25);
+        }
+
+        .gold-shimmer-text {
+            background: linear-gradient(90deg, #7A5C12 0%, #C59B27 35%, #E8C86B 50%, #C59B27 65%, #7A5C12 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 6s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.97);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .catalog-card {
+            animation: fadeUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .catalog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 34px -10px rgba(134, 99, 16, 0.22), 0 0 0 1px rgba(212, 175, 55, 0.45);
+        }
+
+        .catalog-card .card-img {
+            transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .catalog-card:hover .card-img {
+            transform: scale(1.05);
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.75rem;
+        }
+        @media (min-width: 640px) {
+            .catalog-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 1.25rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            .catalog-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 1.5rem;
+            }
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-gold-300 selection:text-espresso-900">
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-30 backdrop-blur-md bg-cream-100/90 border-b border-gold-subtle transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2">
+            
+            <button id="toggleMultiSelectBtn" onclick="toggleMultiSelectMode()" 
+                class="flex items-center gap-1.5 sm:gap-2 px-3 py-2 rounded-full text-xs sm:text-sm font-medium border border-gold-400/60 bg-cream-50 text-espresso-800 hover:bg-gold-100/60 active:scale-95 transition-all shadow-sm">
+                <i data-lucide="check-square" class="w-4 h-4 text-gold-600 shrink-0"></i>
+                <span id="multiSelectBtnText" class="truncate">Seleccionar varias</span>
+            </button>
+
+            <a href="#" class="flex items-center gap-1.5 group focus:outline-none">
+                <span class="font-serif font-bold tracking-[0.18em] sm:tracking-[0.22em] text-lg sm:text-2xl gold-shimmer-text">
+                    FLORENS
+                </span>
+                <span class="hidden xs:inline-block text-[9px] sm:text-[10px] tracking-[0.3em] uppercase text-gold-700 font-semibold border-l border-gold-400/40 pl-1.5">
+                    STORE
+                </span>
+            </a>
+
+            <div class="flex items-center gap-2">
+                <button onclick="openDirectStoreWhatsApp()"
+                   class="flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold btn-gold">
+                    <i data-lucide="message-circle" class="w-4 h-4 shrink-0"></i>
+                    <span class="hidden sm:inline">Contacto</span>
+                </button>
+
+                <button onclick="openAdminModal()" title="Panel Administrador"
+                    class="p-2.5 rounded-full border border-gold-400/50 bg-cream-50 text-gold-700 hover:bg-gold-100 active:scale-95 transition-all shadow-sm relative">
+                    <i data-lucide="sliders-horizontal" class="w-4 h-4"></i>
+                    <span id="adminStatusDot" class="w-2 h-2 rounded-full bg-amber-500 absolute top-1.5 right-1.5"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Header Logo Section -->
+    <section class="relative pt-5 pb-4 sm:pt-10 sm:pb-8 px-3 sm:px-4 text-center overflow-hidden">
+        <div class="max-w-3xl mx-auto flex flex-col items-center">
+            
+            <div id="brandLogoContainer" class="relative mb-3 transition-transform duration-500 hover:scale-[1.02]">
+                <img id="customLogoImg" src="logo.png" alt="FLORENS STORE Logo" 
+                     class="h-32 sm:h-44 w-auto object-contain mx-auto rounded-2xl drop-shadow-md hidden"
+                     onload="this.classList.remove('hidden'); document.getElementById('svgFallbackLogo').classList.add('hidden');"
+                     onerror="this.classList.add('hidden'); document.getElementById('svgFallbackLogo').classList.remove('hidden');">
+
+                <div id="svgFallbackLogo" class="w-64 sm:w-88 mx-auto select-none">
+                    <svg viewBox="0 0 500 250" class="w-full h-auto drop-shadow-[0_8px_14px_rgba(134,99,16,0.28)]" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="gold3D" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FFF3B8" />
+                                <stop offset="22%" stop-color="#DFB74C" />
+                                <stop offset="48%" stop-color="#C29422" />
+                                <stop offset="72%" stop-color="#F5DF98" />
+                                <stop offset="100%" stop-color="#7F5C0D" />
+                            </linearGradient>
+                            <linearGradient id="goldDark" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#D4AF37" />
+                                <stop offset="100%" stop-color="#6E500B" />
+                            </linearGradient>
+                            <filter id="softBevel" x="-10%" y="-10%" width="120%" height="120%">
+                                <feDropShadow dx="1" dy="4" stdDeviation="3" flood-color="#3E2B05" flood-opacity="0.45"/>
+                            </filter>
+                        </defs>
+
+                        <path d="M 185 36 C 185 14, 222 14, 222 34 C 222 46, 204 52, 204 64 L 204 73" 
+                              fill="none" stroke="url(#gold3D)" stroke-width="8.5" stroke-linecap="round" filter="url(#softBevel)"/>
+                        <path d="M 82 170 C 52 170, 58 130, 88 118 L 204 72 L 276 108" 
+                              fill="none" stroke="url(#gold3D)" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#softBevel)"/>
+
+                        <text x="84" y="178" font-family="'Cormorant Garamond', Georgia, serif" font-weight="700" font-size="78" fill="url(#gold3D)" filter="url(#softBevel)" letter-spacing="4">FL</text>
+
+                        <g filter="url(#softBevel)">
+                            <circle cx="222" cy="151" r="31" fill="none" stroke="url(#gold3D)" stroke-width="6.5"/>
+                            <circle cx="222" cy="151" r="25" fill="none" stroke="url(#goldDark)" stroke-width="1.5" opacity="0.7"/>
+                            <path d="M 211 133 C 215 138, 229 138, 233 133 L 243 140 L 238 148 L 233 144 L 233 170 L 211 170 L 211 144 L 206 148 L 201 140 Z" 
+                                  fill="url(#gold3D)"/>
+                        </g>
+
+                        <text x="260" y="178" font-family="'Cormorant Garamond', Georgia, serif" font-weight="700" font-size="78" fill="url(#gold3D)" filter="url(#softBevel)" letter-spacing="3">RENS</text>
+
+                        <line x1="90" y1="201" x2="225" y2="201" stroke="url(#gold3D)" stroke-width="3.5" stroke-linecap="round" filter="url(#softBevel)"/>
+                        <g transform="translate(250, 201)" fill="url(#gold3D)" filter="url(#softBevel)">
+                            <path d="M 0 -8 C 3 -3, 3 3, 0 8 C -3 3, -3 -3, 0 -8 Z"/>
+                            <path d="M -14 0 C -8 -4, -4 -2, -2 0 C -4 2, -8 4, -14 0 Z"/>
+                            <path d="M 14 0 C 8 -4, 4 -2, 2 0 C 4 2, 8 4, 14 0 Z"/>
+                            <circle cx="-6" cy="-5" r="2"/>
+                            <circle cx="6" cy="-5" r="2"/>
+                        </g>
+                        <line x1="275" y1="201" x2="410" y2="201" stroke="url(#gold3D)" stroke-width="3.5" stroke-linecap="round" filter="url(#softBevel)"/>
+
+                        <text x="255" y="234" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="22" fill="url(#gold3D)" filter="url(#softBevel)" letter-spacing="14">STORE</text>
+                    </svg>
+                </div>
+            </div>
+
+            <p class="text-espresso-800/80 text-xs sm:text-sm max-w-md font-light px-2">
+                Toca cualquier prenda para verla en pantalla completa o marca varias con el check para cotizarlas juntas en nuestro WhatsApp.
+            </p>
+
+            <!-- Buscador por Código Único -->
+            <div class="w-full max-w-md mt-4 px-2">
+                <div class="relative flex items-center">
+                    <i data-lucide="search" class="w-4 h-4 text-gold-700 absolute left-3.5 pointer-events-none"></i>
+                    <input type="text" id="codeSearchInput" oninput="handleCodeSearch(this.value)" 
+                        placeholder="Buscar prenda por código (ej: A7K9M2X4)..." 
+                        class="w-full pl-10 pr-20 py-2.5 rounded-full border border-gold-400/70 bg-white/95 text-xs sm:text-sm text-espresso-900 placeholder:text-espresso-800/50 focus:outline-none focus:ring-2 focus:ring-gold-400 shadow-sm uppercase tracking-wider font-mono">
+                    <button id="clearSearchBtn" onclick="clearCodeSearch()" class="hidden absolute right-2 px-2.5 py-1 rounded-full bg-cream-200 hover:bg-cream-300 text-[11px] font-semibold text-espresso-800 transition">
+                        Limpiar
+                    </button>
+                </div>
+            </div>
+
+            <div class="w-full max-w-2xl mt-4 overflow-x-auto no-scrollbar px-2">
+                <div id="categoryFiltersContainer" class="inline-flex items-center justify-center gap-2 min-w-full sm:flex-wrap"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Main -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-2.5 sm:px-6 lg:px-8 pb-28">
+        <!-- Banner cuando se abre un link de varios códigos desde WhatsApp -->
+        <div id="sharedSelectionBanner" class="hidden mb-4 p-3.5 rounded-2xl bg-gold-100/90 border border-gold-400 flex items-center justify-between gap-3 shadow-sm">
+            <div class="flex items-center gap-2.5 text-xs sm:text-sm text-espresso-900 font-medium">
+                <i data-lucide="sparkles" class="w-4 h-4 text-gold-700 shrink-0"></i>
+                <span id="sharedSelectionBannerText">Mostrando prendas del pedido seleccionado</span>
+            </div>
+            <button onclick="clearCodeSearch()" class="px-3 py-1.5 rounded-xl bg-white border border-gold-400 text-xs font-semibold text-gold-800 hover:bg-gold-50 shrink-0">
+                Ver todo el catálogo
+            </button>
+        </div>
+
+        <div class="flex items-center justify-between mb-3 px-1 text-[11px] sm:text-xs text-espresso-800/65">
+            <span id="catalogCountLabel" class="font-medium">Cargando catálogo...</span>
+            <span class="flex items-center gap-1">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-gold-600"></i>
+                <span>Marca el check en 2 o más fotos para cotizar varias</span>
+            </span>
+        </div>
+
+        <div id="catalogGrid" class="catalog-grid"></div>
+
+        <div id="emptyState" class="hidden py-16 px-4 text-center max-w-md mx-auto">
+            <div class="w-16 h-16 rounded-full bg-gold-100 border border-gold-300 flex items-center justify-center mx-auto mb-4 text-gold-700">
+                <i data-lucide="image-plus" class="w-8 h-8"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-semibold text-espresso-900 mb-2">Catálogo vacío</h3>
+            <p class="text-xs sm:text-sm text-espresso-800/70 mb-6">
+                Ingresa al panel administrador para subir lotes masivos de imágenes (50+ a la vez).
+            </p>
+            <button onclick="openAdminModal()" class="btn-gold px-6 py-3 rounded-full text-xs sm:text-sm font-semibold inline-flex items-center gap-2">
+                <i data-lucide="upload-cloud" class="w-4 h-4"></i>
+                Abrir Administrador
+            </button>
+        </div>
+    </main>
+
+    <!-- Floating Bar for Multi-select -->
+    <div id="multiSelectBar" class="fixed bottom-4 inset-x-3 max-w-xl mx-auto z-40 transform translate-y-36 opacity-0 pointer-events-none transition-all duration-400">
+        <div class="bg-espresso-900/95 backdrop-blur-xl text-cream-50 p-3 sm:px-5 rounded-2xl shadow-2xl border border-gold-400/50 flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2.5">
+                <span id="selectedCountBadge" class="w-8 h-8 rounded-full btn-gold flex items-center justify-center font-bold text-xs sm:text-sm shrink-0">0</span>
+                <div class="text-left">
+                    <p id="multiSelectStatusTitle" class="text-xs sm:text-sm font-semibold text-cream-50 leading-tight">Prendas seleccionadas</p>
+                    <p id="multiSelectStatusSub" class="text-[10px] sm:text-[11px] text-gold-300 font-mono truncate max-w-[160px] sm:max-w-[240px]">Selecciona otra prenda...</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-1.5">
+                <button onclick="clearMultiSelection()" class="px-2.5 py-2 rounded-xl text-xs text-cream-200 hover:bg-white/10 transition">Limpiar</button>
+                <button id="multiQuoteActionBtn" onclick="quoteMultipleSelected()" class="btn-gold px-3.5 sm:px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-1.5">
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                    <span id="multiQuoteActionText">Cotizar prendas</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="fixed inset-0 z-50 hidden items-center justify-center p-2.5 sm:p-6 bg-espresso-900/85 backdrop-blur-md opacity-0 transition-opacity duration-300">
+        <div class="relative w-full max-w-lg bg-cream-50 rounded-3xl overflow-hidden shadow-2xl border border-gold-300/60 transform scale-95 transition-transform duration-300 flex flex-col max-h-[92vh]" id="lightboxCard">
+            
+            <button onclick="closeLightbox()" class="absolute top-3 right-3 z-20 w-10 h-10 rounded-full bg-espresso-900/65 text-white hover:bg-espresso-900 backdrop-blur-md flex items-center justify-center transition">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <button onclick="navigateLightbox(-1)" class="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-cream-50/85 hover:bg-cream-50 text-espresso-900 shadow-md flex items-center justify-center transition">
+                <i data-lucide="chevron-left" class="w-5 h-5"></i>
+            </button>
+            <button onclick="navigateLightbox(1)" class="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-cream-50/85 hover:bg-cream-50 text-espresso-900 shadow-md flex items-center justify-center transition">
+                <i data-lucide="chevron-right" class="w-5 h-5"></i>
+            </button>
+
+            <div class="relative bg-cream-200 flex-1 min-h-[260px] max-h-[66vh] flex items-center justify-center overflow-hidden">
+                <img id="lightboxImage" src="" alt="Prenda FLORENS STORE" class="w-full h-full max-h-[66vh] object-contain select-none">
+            </div>
+
+            <div class="p-4 sm:p-5 bg-gradient-to-b from-cream-50 to-cream-100 border-t border-gold-200 flex flex-col gap-2.5">
+                <div class="flex items-center justify-between text-[11px] text-espresso-800/70">
+                    <span id="lightboxCategoryTag" class="font-semibold tracking-wider uppercase text-gold-700">FLORENS STORE</span>
+                    <button onclick="copyCurrentLightboxCode()" class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-gold-100/80 border border-gold-300 text-espresso-900 font-mono font-bold text-xs hover:bg-gold-200 transition" title="Toca para copiar el código">
+                        <span>CÓDIGO:</span>
+                        <span id="lightboxCodeTag" class="text-gold-800 tracking-wider">--------</span>
+                        <i data-lucide="copy" class="w-3 h-3 text-gold-700"></i>
+                    </button>
+                </div>
+
+                <button onclick="quoteCurrentLightboxItem()" 
+                    class="w-full py-3.5 px-5 rounded-2xl btn-gold font-semibold text-sm sm:text-base flex items-center justify-center gap-2 shadow-lg">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                    <span>Contacta para cotizar</span>
+                </button>
+
+                <button id="nativeShareBtn" onclick="shareCurrentLightboxImageFile()" 
+                    class="w-full py-2.5 px-4 rounded-xl border border-gold-400/50 bg-white text-espresso-800 hover:bg-gold-100/40 text-xs font-medium flex items-center justify-center gap-2 transition">
+                    <i data-lucide="share-2" class="w-4 h-4 text-gold-600"></i>
+                    <span>Compartir foto como archivo directo (Celular)</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Modal -->
+    <div id="adminModal" class="fixed inset-0 z-50 hidden items-center justify-center p-2 sm:p-5 bg-espresso-900/80 backdrop-blur-md">
+        <div class="bg-cream-50 w-full max-w-5xl h-[92vh] rounded-3xl shadow-2xl border border-gold-300 flex flex-col overflow-hidden">
+            
+            <div class="px-4 sm:px-6 py-3.5 bg-cream-100 border-b border-gold-200 flex items-center justify-between shrink-0">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-2xl btn-gold flex items-center justify-center shrink-0">
+                        <i data-lucide="crown" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-serif text-lg sm:text-xl font-bold text-espresso-900 leading-tight">Panel Administrador • FLORENS</h2>
+                        <p id="storageModeBadge" class="text-[11px] text-gold-700 font-medium">Almacenamiento activo</p>
+                    </div>
+                </div>
+                <button onclick="closeAdminModal()" class="p-2 rounded-full hover:bg-cream-200 text-espresso-800 transition">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <div id="adminLoginView" class="p-6 sm:p-10 text-center max-w-md mx-auto my-auto">
+                <div class="w-14 h-14 rounded-2xl bg-gold-100 border border-gold-300 flex items-center justify-center mx-auto mb-4 text-gold-700">
+                    <i data-lucide="lock" class="w-7 h-7"></i>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-espresso-900 mb-2">Acceso Administrador</h3>
+                <p class="text-xs text-espresso-800/70 mb-5">
+                    Ingresa tu contraseña de seguridad para gestionar el catálogo de FLORENS STORE.
+                </p>
+                <form onsubmit="handleAdminLogin(event)" class="space-y-3">
+                    <input type="password" id="adminPinInput" placeholder="Contraseña de acceso..." 
+                        class="w-full px-4 py-3 rounded-xl border border-gold-300 bg-white text-center text-base tracking-widest focus:outline-none focus:ring-2 focus:ring-gold-400">
+                    <button type="submit" class="w-full py-3 rounded-xl btn-gold font-semibold text-sm">Entrar al Panel</button>
+                </form>
+            </div>
+
+            <div id="adminDashboardView" class="hidden flex-1 flex flex-col overflow-hidden">
+                <div class="flex border-b border-gold-200 bg-cream-100/70 px-3 sm:px-5 gap-1 sm:gap-3 overflow-x-auto no-scrollbar shrink-0">
+                    <button onclick="switchAdminTab('upload')" id="tabBtn-upload" class="admin-tab-btn px-3 sm:px-4 py-3 text-xs sm:text-sm font-semibold border-b-2 border-gold-500 text-gold-800 flex items-center gap-1.5 whitespace-nowrap">
+                        <i data-lucide="upload-cloud" class="w-4 h-4"></i>
+                        <span>Subir por Lotes (50+)</span>
+                    </button>
+                    <button onclick="switchAdminTab('manage')" id="tabBtn-manage" class="admin-tab-btn px-3 sm:px-4 py-3 text-xs sm:text-sm font-medium border-b-2 border-transparent text-espresso-800/70 hover:text-espresso-900 flex items-center gap-1.5 whitespace-nowrap">
+                        <i data-lucide="layers" class="w-4 h-4"></i>
+                        <span>Organizar / Mover Mercancía (<span id="adminTotalItemsCount">0</span>)</span>
+                    </button>
+                    <button onclick="switchAdminTab('settings')" id="tabBtn-settings" class="admin-tab-btn px-3 sm:px-4 py-3 text-xs sm:text-sm font-medium border-b-2 border-transparent text-espresso-800/70 hover:text-espresso-900 flex items-center gap-1.5 whitespace-nowrap">
+                        <i data-lucide="settings" class="w-4 h-4"></i>
+                        <span>Firebase & Logo</span>
+                    </button>
+                </div>
+
+                <div class="flex-1 overflow-y-auto p-3.5 sm:p-6">
+                    
+                    <!-- TAB 1: UPLOAD -->
+                    <div id="adminTab-upload" class="space-y-5">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+                            <div class="md:col-span-2 bg-white p-4 rounded-2xl border border-gold-200 shadow-sm">
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-gold-700 mb-2">
+                                    1. Categoría para este lote de fotos
+                                </label>
+                                <div class="flex flex-col sm:flex-row gap-2">
+                                    <select id="batchCategorySelect" class="flex-1 px-3.5 py-2.5 rounded-xl border border-gold-300 bg-cream-50 text-xs sm:text-sm font-medium focus:outline-none focus:border-gold-500">
+                                        <option value="Nueva Colección">Nueva Colección</option>
+                                        <option value="Destacados">Destacados</option>
+                                        <option value="Exclusivos">Exclusivos</option>
+                                        <option value="Todo">Todo</option>
+                                    </select>
+                                    <input type="text" id="customCategoryInput" placeholder="O crea otra categoría..." 
+                                        class="flex-1 px-3.5 py-2.5 rounded-xl border border-gold-200 bg-white text-xs sm:text-sm focus:outline-none focus:border-gold-500">
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-4 rounded-2xl border border-gold-200 shadow-sm flex flex-col justify-center">
+                                <label class="flex items-center gap-2.5 cursor-pointer select-none">
+                                    <input type="checkbox" id="batchFeaturedToggle" class="w-4 h-4 accent-gold-600 rounded">
+                                    <span class="text-xs sm:text-sm font-semibold text-espresso-900">Mostrar primero al inicio</span>
+                                </label>
+                                <p class="text-[11px] text-espresso-800/60 mt-1">Soporta más de 50 imágenes simultáneas.</p>
+                            </div>
+                        </div>
+
+                        <div id="dropZone" 
+                             onclick="document.getElementById('batchFileInput').click()"
+                             ondragover="handleDragOver(event)" 
+                             ondragleave="handleDragLeave(event)" 
+                             ondrop="handleDropFiles(event)"
+                             class="border-2 border-dashed border-gold-400 bg-gradient-to-b from-cream-50 to-cream-100/80 hover:from-gold-100/40 hover:to-cream-100 rounded-3xl p-6 sm:p-12 text-center cursor-pointer transition-all group">
+                            <input type="file" id="batchFileInput" multiple accept="image/*" class="hidden" onchange="handleFileSelect(event)">
+                            
+                            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl btn-gold flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:scale-105 transition-transform">
+                                <i data-lucide="images" class="w-7 h-7 sm:w-8 sm:h-8"></i>
+                            </div>
+                            <h3 class="font-serif text-xl sm:text-2xl font-bold text-espresso-900 mb-1">
+                                Toca aquí para subir tus fotos por lote
+                            </h3>
+                            <p class="text-xs sm:text-sm text-espresso-800/75 max-w-lg mx-auto mb-4">
+                                Selecciona 50, 100 o más imágenes a la vez. El sistema las comprime y optimiza automáticamente.
+                            </p>
+                            <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-gold-300 text-xs font-semibold text-gold-800 shadow-sm">
+                                <i data-lucide="plus-circle" class="w-4 h-4 text-gold-600"></i>
+                                Elegir imágenes del dispositivo
+                            </span>
+                        </div>
+
+                        <div id="batchProgressContainer" class="hidden bg-white p-4 sm:p-5 rounded-2xl border border-gold-300 shadow-md space-y-2.5">
+                            <div class="flex items-center justify-between text-xs sm:text-sm">
+                                <span class="font-semibold text-espresso-900 flex items-center gap-2">
+                                    <i data-lucide="loader-2" class="w-4 h-4 animate-spin text-gold-600"></i>
+                                    Subiendo lote de prendas...
+                                </span>
+                                <span id="batchProgressNumbers" class="font-bold text-gold-700">0 / 0</span>
+                            </div>
+                            <div class="w-full h-3 bg-cream-200 rounded-full overflow-hidden">
+                                <div id="batchProgressBar" class="h-full btn-gold transition-all duration-200" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 2: MANAGE & BATCH MOVE -->
+                    <div id="adminTab-manage" class="hidden space-y-4">
+                        <div class="bg-white p-3.5 rounded-2xl border border-gold-200 shadow-sm space-y-3">
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <button onclick="selectAllAdminItems()" class="px-3 py-2 rounded-xl border border-gold-300 bg-cream-50 text-xs font-semibold text-espresso-900 hover:bg-gold-100/60 transition">
+                                        Seleccionar todas / Ninguna
+                                    </button>
+                                    <select id="adminFilterCategory" onchange="renderAdminCatalogList()" class="px-3 py-2 rounded-xl border border-gold-200 bg-white text-xs font-medium text-espresso-800">
+                                        <option value="ALL">Ver todas las secciones</option>
+                                        <option value="Nueva Colección">Ver: Nueva Colección</option>
+                                        <option value="Destacados">Ver: Destacados</option>
+                                        <option value="Exclusivos">Ver: Exclusivos</option>
+                                        <option value="Todo">Ver: Solo en Todo</option>
+                                    </select>
+                                </div>
+                                <span class="text-[11px] text-espresso-800/70">Marca varias fotos para moverlas de sección</span>
+                            </div>
+
+                            <div id="adminBatchActionsBar" class="hidden pt-2.5 border-t border-gold-200/80 flex flex-wrap items-center justify-between gap-2">
+                                <span class="text-xs font-bold text-gold-800">
+                                    <span id="adminSelectedActionCount">0</span> prendas marcadas:
+                                </span>
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <select id="adminBatchNewCategory" class="px-3 py-2 rounded-xl border border-gold-400 bg-cream-50 text-xs font-semibold text-espresso-900 focus:outline-none">
+                                        <option value="Todo">Pasar a: Todo</option>
+                                        <option value="Nueva Colección">Pasar a: Nueva Colección</option>
+                                        <option value="Destacados">Pasar a: Destacados</option>
+                                        <option value="Exclusivos">Pasar a: Exclusivos</option>
+                                    </select>
+                                    <button onclick="applyBatchCategoryChange()" class="px-3.5 py-2 rounded-xl btn-gold text-xs font-semibold flex items-center gap-1.5">
+                                        <i data-lucide="folder-sync" class="w-3.5 h-3.5"></i>
+                                        <span>Cambiar Categoría</span>
+                                    </button>
+                                    <button onclick="deleteSelectedAdminItems()" class="px-3 py-2 rounded-xl bg-red-600 text-white text-xs font-semibold hover:bg-red-700 transition flex items-center gap-1">
+                                        <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                                        <span>Eliminar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="adminCatalogList" class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-3"></div>
+                    </div>
+
+                    <!-- TAB 3: SETTINGS -->
+                    <div id="adminTab-settings" class="hidden space-y-5">
+                        <div class="bg-white p-4 sm:p-5 rounded-2xl border border-gold-200 space-y-3">
+                            <h4 class="font-serif text-lg font-bold text-espresso-900 flex items-center gap-2">
+                                <i data-lucide="award" class="w-5 h-5 text-gold-600"></i>
+                                Logo y WhatsApp
+                            </h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+                                <div>
+                                    <label class="block text-xs font-semibold text-espresso-800 mb-1.5">Subir Logo de la Tienda</label>
+                                    <input type="file" accept="image/*" onchange="handleLogoUpload(event)" 
+                                        class="w-full text-xs file:mr-3 file:py-2 file:px-3.5 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-gold-100 file:text-gold-800 hover:file:bg-gold-200">
+                                    <button onclick="resetToSvgLogo()" class="mt-2 text-[11px] text-gold-700 underline">Restaurar logo dorado 3D</button>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-espresso-800 mb-1.5">WhatsApp de FLORENS STORE</label>
+                                    <input type="text" id="adminWhatsappInput" value="584220282751" 
+                                        class="w-full px-3.5 py-2 rounded-xl border border-gold-300 text-sm font-medium">
+                                </div>
+                            </div>
+                            <div class="pt-1 flex justify-end">
+                                <button onclick="saveStoreSettings()" class="btn-gold px-4 py-2 rounded-xl text-xs font-semibold">Guardar WhatsApp</button>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 sm:p-5 rounded-2xl border border-gold-200 space-y-4">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                <div>
+                                    <h4 class="font-serif text-lg font-bold text-espresso-900 flex items-center gap-2">
+                                        <i data-lucide="database" class="w-5 h-5 text-gold-600"></i>
+                                        Conexión Firebase (Tiempo Real)
+                                    </h4>
+                                    <p id="firebaseDiagnosticText" class="text-xs text-espresso-800/70 mt-1">Verifica el estado de tu conexión con Firestore.</p>
+                                </div>
+                                <button onclick="testAndConnectFirebase()" type="button" class="w-full sm:w-auto px-4 py-2.5 rounded-xl btn-gold text-xs font-bold flex items-center justify-center gap-1.5 shadow-md">
+                                    <i data-lucide="zap" class="w-4 h-4"></i>
+                                    <span>Probar y Conectar Ahora</span>
+                                </button>
+                            </div>
+
+                            <!-- Estado en vivo de la conexión -->
+                            <div id="liveConnectionBox" class="p-3.5 rounded-xl bg-cream-100 border border-gold-300 text-xs space-y-1.5">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-bold text-espresso-900">Estado actual de la base de datos:</span>
+                                    <span id="liveConnectionPill" class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-200 text-amber-900">Verificando...</span>
+                                </div>
+                                <p id="liveConnectionDetail" class="text-[11px] text-espresso-800/80 leading-relaxed">
+                                    Esperando lectura de llaves...
+                                </p>
+                            </div>
+
+                            <!-- Pegado rápido de bloque completo de Firebase -->
+                            <div class="p-3.5 rounded-xl bg-gold-100/40 border border-gold-300 space-y-2">
+                                <label class="block text-xs font-bold text-espresso-900">
+                                    📋 Pega aquí todo lo que copiaste de Firebase (él extrae las llaves solo):
+                                </label>
+                                <textarea id="fb_rawPasteInput" rows="3" oninput="parseRawFirebaseConfig(this.value)" placeholder="Pega aquí el bloque const firebaseConfig = { apiKey: ... } completo..." class="w-full px-3 py-2 rounded-lg border border-gold-300 bg-white text-xs font-mono focus:outline-none focus:border-gold-600"></textarea>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                                <div>
+                                    <label class="font-semibold text-espresso-800 block mb-1">apiKey</label>
+                                    <input type="text" id="fb_apiKey" class="w-full px-3 py-2.5 rounded-lg border border-gold-300 bg-white text-espresso-900 font-mono text-xs">
+                                </div>
+                                <div>
+                                    <label class="font-semibold text-espresso-800 block mb-1">authDomain</label>
+                                    <input type="text" id="fb_authDomain" class="w-full px-3 py-2.5 rounded-lg border border-gold-300 bg-white text-espresso-900 font-mono text-xs">
+                                </div>
+                                <div>
+                                    <label class="font-semibold text-espresso-800 block mb-1">projectId</label>
+                                    <input type="text" id="fb_projectId" class="w-full px-3 py-2.5 rounded-lg border border-gold-300 bg-white text-espresso-900 font-mono text-xs">
+                                </div>
+                                <div>
+                                    <label class="font-semibold text-espresso-800 block mb-1">storageBucket</label>
+                                    <input type="text" id="fb_storageBucket" class="w-full px-3 py-2.5 rounded-lg border border-gold-300 bg-white text-espresso-900 font-mono text-xs">
+                                </div>
+                                <div>
+                                    <label class="font-semibold text-espresso-800 block mb-1">messagingSenderId</label>
+                                    <input type="text" id="fb_messagingSenderId" class="w-full px-3 py-2.5 rounded-lg border border-gold-300 bg-white text-espresso-900 font-mono text-xs">
+                                </div>
+                                <div>
+                                    <label class="font-semibold text-espresso-800 block mb-1">appId</label>
+                                    <input type="text" id="fb_appId" class="w-full px-3 py-2.5 rounded-lg border border-gold-300 bg-white text-espresso-900 font-mono text-xs">
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-2 pt-1">
+                                <button onclick="saveFirebaseConfigFromUI()" type="button" class="btn-gold px-5 py-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-2">
+                                    <i data-lucide="save" class="w-4 h-4"></i>
+                                    Guardar y Conectar en Vivo
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 sm:p-5 rounded-2xl border border-gold-200 space-y-3">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-serif text-lg font-bold text-espresso-900 flex items-center gap-2">
+                                        <i data-lucide="key-round" class="w-5 h-5 text-gold-600"></i>
+                                        Seguridad • Cambiar Contraseña Admin
+                                    </h4>
+                                    <p class="text-xs text-espresso-800/70 mt-0.5">Actualiza la contraseña de acceso al panel de administración.</p>
+                                </div>
+                                <button type="button" onclick="togglePasswordVisibility()" class="text-xs text-gold-700 hover:underline font-medium flex items-center gap-1">
+                                    <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+                                    <span>Mostrar/Ocultar</span>
+                                </button>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+                                <input type="password" id="currentAdminPinInput" placeholder="Contraseña actual" class="px-3.5 py-2.5 rounded-xl border border-gold-200 bg-cream-50 text-xs focus:outline-none focus:border-gold-500">
+                                <input type="password" id="newAdminPinInput" placeholder="Nueva contraseña" class="px-3.5 py-2.5 rounded-xl border border-gold-200 bg-cream-50 text-xs focus:outline-none focus:border-gold-500">
+                                <input type="password" id="confirmAdminPinInput" placeholder="Confirmar nueva contraseña" class="px-3.5 py-2.5 rounded-xl border border-gold-200 bg-cream-50 text-xs focus:outline-none focus:border-gold-500">
+                            </div>
+
+                            <div class="flex justify-end pt-1">
+                                <button onclick="updateAdminPin()" class="px-5 py-2.5 rounded-xl btn-gold text-xs font-semibold flex items-center gap-1.5">
+                                    <i data-lucide="shield-check" class="w-4 h-4"></i>
+                                    Guardar Nueva Contraseña
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toastNotification" class="fixed top-20 right-3 sm:right-5 z-50 transform translate-x-96 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-espresso-900 text-cream-50 px-4 py-3 rounded-2xl shadow-xl border border-gold-400/50 flex items-center gap-2.5 max-w-xs sm:max-w-sm">
+            <i data-lucide="sparkles" class="w-4 h-4 text-gold-400 shrink-0"></i>
+            <span id="toastMessage" class="text-xs sm:text-sm font-medium">Listo</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-auto border-t border-gold-subtle bg-cream-200/60 py-6 px-4 text-center text-xs text-espresso-800/70">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div class="flex items-center gap-2">
+                <span class="font-serif font-bold text-base text-gold-800 tracking-widest">FLORENS STORE</span>
+                <span>• Catálogo Exclusivo</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <button onclick="openDirectStoreWhatsApp()" class="hover:text-gold-700 font-medium transition">WhatsApp: +58 422-0282751</button>
+                <span>|</span>
+                <button onclick="openAdminModal()" class="hover:text-gold-700 underline transition">Administrador</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application Script & Firebase Integration -->
+    <script type="module">
+        import { initializeApp, getApps, deleteApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getFirestore, collection, doc, setDoc, getDoc, deleteDoc, onSnapshot, updateDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+        // ============================================================================
+        // 👇 LLAVES DE FIREBASE INTEGRADAS (catalogo2-25adf) 👇
+        // ============================================================================
+        const FIREBASE_CONFIG_DEFAULT = {
+            apiKey: "AIzaSyCrh01CD9dju0PxoWObwjEkUHc25NlIjOk",
+            authDomain: "catalogo2-25adf.firebaseapp.com",
+            projectId: "catalogo2-25adf",
+            storageBucket: "catalogo2-25adf.firebasestorage.app",
+            messagingSenderId: "21836994715",
+            appId: "1:21836994715:web:8a1a17d76b11bc53b90e3e",
+            measurementId: "G-3JR5EK39JL"
+        };
+
+        let STORE_WHATSAPP = localStorage.getItem("florens_whatsapp") || "584220282751";
+        const WHATSAPP_GREETING = "Hola! por favor detalles de la prenda.";
+
+        let catalogItems = [];
+        let activeCategory = "Todo";
+        let searchQueryCode = "";
+        let isMultiSelectMode = false;
+        let selectedClientIds = new Set();
+        let adminSelectedIds = new Set();
+        let currentLightboxIndex = 0;
+        let isAdminAuthenticated = false;
+        let adminPin = localStorage.getItem("florens_admin_pin") || "1234";
+
+        let db = null;
+        let isFirebaseConnected = false;
+        let unsubscribeCatalog = null;
+        let unsubscribeConfig = null;
+
+        // Generador de Código Único de 8 caracteres alfanuméricos (Letras y Números sin ambiguos)
+        function generateUnique8CharCode(existingCodesSet) {
+            const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+            let code = "";
+            let attempts = 0;
+            do {
+                code = "";
+                for (let i = 0; i < 8; i++) {
+                    code += chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+                attempts++;
+            } while (existingCodesSet && existingCodesSet.has(code) && attempts < 500);
+            if (existingCodesSet) existingCodesSet.add(code);
+            return code;
+        }
+
+        // Asegura que toda prenda (incluso las subidas antes de esta actualización) tenga su código único de 8 dígitos
+        function ensureAllItemsHaveUniqueCode(items) {
+            const usedCodes = new Set();
+            items.forEach(item => {
+                if (item.code && String(item.code).trim().length >= 8) {
+                    usedCodes.add(String(item.code).trim().toUpperCase());
+                }
+            });
+
+            items.forEach(item => {
+                if (!item.code || String(item.code).trim().length < 8) {
+                    const newCode = generateUnique8CharCode(usedCodes);
+                    item.code = newCode;
+                    // Guardamos el código generado en segundo plano para que quede fijo
+                    if (isFirebaseConnected && db && item.id) {
+                        updateDoc(doc(db, "florens_catalogo", item.id), { code: newCode }).catch(() => {});
+                    } else if (item.id) {
+                        saveLocalItem(item).catch(() => {});
+                    }
+                } else {
+                    item.code = String(item.code).trim().toUpperCase();
+                }
+            });
+            return items;
+        }
+
+        function isValidConfig(cfg) {
+            if (!cfg || typeof cfg !== "object") return false;
+            const key = String(cfg.apiKey || "").trim();
+            const proj = String(cfg.projectId || "").trim();
+            return (
+                key.length > 8 &&
+                !key.includes("PEGA_AQUI") &&
+                !key.includes("tu-proyecto") &&
+                proj.length > 2 &&
+                !proj.includes("PEGA_AQUI") &&
+                !proj.includes("tu-proyecto")
+            );
+        }
+
+        function setLiveStatus(statusType, titlePill, detailHtml) {
+            const pill = document.getElementById("liveConnectionPill");
+            const detail = document.getElementById("liveConnectionDetail");
+            const diagText = document.getElementById("firebaseDiagnosticText");
+            const dot = document.getElementById("adminStatusDot");
+            const badge = document.getElementById("storageModeBadge");
+
+            if (pill) {
+                pill.textContent = titlePill;
+                pill.className = "px-2.5 py-0.5 rounded-full text-[11px] font-bold " + (
+                    statusType === "ok" ? "bg-emerald-200 text-emerald-900" :
+                    statusType === "error" ? "bg-red-200 text-red-900" :
+                    "bg-amber-200 text-amber-900"
+                );
+            }
+            if (detail) detail.innerHTML = detailHtml;
+            if (diagText) diagText.innerHTML = detailHtml;
+            if (dot) {
+                dot.className = "w-2 h-2 rounded-full absolute top-1.5 right-1.5 " + (
+                    statusType === "ok" ? "bg-emerald-500" :
+                    statusType === "error" ? "bg-red-500" : "bg-amber-500"
+                );
+            }
+            if (badge) {
+                badge.textContent = statusType === "ok" ? "Conectado a Firebase Nube" : "Modo Memoria Local (Sin Nube)";
+            }
+        }
+
+        function openLocalDB() {
+            return new Promise((resolve, reject) => {
+                const req = indexedDB.open("FlorensStoreCatalogDB", 1);
+                req.onupgradeneeded = (e) => {
+                    const idb = e.target.result;
+                    if (!idb.objectStoreNames.contains("items")) {
+                        idb.createObjectStore("items", { keyPath: "id" });
+                    }
+                };
+                req.onsuccess = () => resolve(req.result);
+                req.onerror = () => reject(req.error);
+            });
+        }
+
+        async function getLocalItems() {
+            const idb = await openLocalDB();
+            return new Promise((resolve, reject) => {
+                const tx = idb.transaction("items", "readonly");
+                const req = tx.objectStore("items").getAll();
+                req.onsuccess = () => resolve(req.result || []);
+                req.onerror = () => reject(req.error);
+            });
+        }
+
+        async function saveLocalItem(item) {
+            const idb = await openLocalDB();
+            return new Promise((resolve, reject) => {
+                const tx = idb.transaction("items", "readwrite");
+                tx.objectStore("items").put(item);
+                tx.oncomplete = () => resolve();
+                tx.onerror = () => reject(tx.error);
+            });
+        }
+
+        async function deleteLocalItem(id) {
+            const idb = await openLocalDB();
+            return new Promise((resolve, reject) => {
+                const tx = idb.transaction("items", "readwrite");
+                tx.objectStore("items").delete(id);
+                tx.oncomplete = () => resolve();
+                tx.onerror = () => reject(tx.error);
+            });
+        }
+
+        async function connectToFirebaseLive(cfg, runWriteTest = false) {
+            if (!isValidConfig(cfg)) {
+                setLiveStatus(
+                    "warn",
+                    "Sin llaves",
+                    "Todavía no hay llaves cargadas. Pégalas en el cuadro de abajo y presiona <strong>Guardar y Conectar en Vivo</strong>."
+                );
+                await loadFromLocalFallback();
+                return false;
+            }
+
+            try {
+                setLiveStatus("warn", "Conectando...", `Conectando con el proyecto <strong>${cfg.projectId}</strong>...`);
+
+                if (unsubscribeCatalog) { unsubscribeCatalog(); unsubscribeCatalog = null; }
+                if (unsubscribeConfig) { unsubscribeConfig(); unsubscribeConfig = null; }
+
+                const existingApps = getApps();
+                for (const a of existingApps) {
+                    await deleteApp(a).catch(() => {});
+                }
+
+                const app = initializeApp(cfg);
+                db = getFirestore(app);
+
+                // Prueba real de escritura/lectura si el usuario presionó "Guardar y Conectar"
+                if (runWriteTest) {
+                    await setDoc(doc(db, "florens_config", "general"), {
+                        lastConnectedAt: Date.now(),
+                        whatsapp: STORE_WHATSAPP
+                    }, { merge: true });
+                }
+
+                isFirebaseConnected = true;
+                localStorage.setItem("florens_firebase_config", JSON.stringify(cfg));
+
+                setLiveStatus(
+                    "ok",
+                    "¡CONECTADO A FIREBASE!",
+                    `✅ Conectado con éxito al proyecto <strong>${cfg.projectId}</strong>. Todo lo que subas o edites se guarda en tiempo real.`
+                );
+
+                unsubscribeConfig = onSnapshot(doc(db, "florens_config", "general"), (docSnap) => {
+                    if (docSnap.exists()) {
+                        const data = docSnap.data();
+                        if (data.adminPin) {
+                            adminPin = data.adminPin;
+                            localStorage.setItem("florens_admin_pin", adminPin);
+                        }
+                        if (data.whatsapp) {
+                            STORE_WHATSAPP = data.whatsapp;
+                            localStorage.setItem("florens_whatsapp", STORE_WHATSAPP);
+                            const waInput = document.getElementById("adminWhatsappInput");
+                            if (waInput) waInput.value = STORE_WHATSAPP;
+                        }
+                        if (data.customLogo) {
+                            localStorage.setItem("florens_custom_logo", data.customLogo);
+                            const logoImg = document.getElementById("customLogoImg");
+                            logoImg.src = data.customLogo;
+                            logoImg.classList.remove("hidden");
+                            document.getElementById("svgFallbackLogo").classList.add("hidden");
+                        }
+                    }
+                }, (err) => {
+                    console.warn("Error leyendo config:", err);
+                });
+
+                unsubscribeCatalog = onSnapshot(collection(db, "florens_catalogo"), (snapshot) => {
+                    const docs = [];
+                    snapshot.forEach(d => docs.push({ id: d.id, ...d.data() }));
+                    const withCodes = ensureAllItemsHaveUniqueCode(docs);
+                    catalogItems = sortCatalogItems(withCodes);
+                    renderAll();
+                    checkSharedDeepLink();
+                }, async (err) => {
+                    isFirebaseConnected = false;
+                    setLiveStatus(
+                        "error",
+                        "Bloqueado por Reglas de Firebase",
+                        `❌ Tus llaves son correctas (<strong>${cfg.projectId}</strong>), pero Firebase rechazó el acceso (<strong>${err.code}</strong>).<br>Ve a <strong>Firebase Console &rarr; Firestore Database &rarr; Reglas (Rules)</strong> y pon: <code>allow read, write: if true;</code> y dale a <strong>Publicar</strong>.`
+                    );
+                    showToast("Falta activar las Reglas en Firestore Database");
+                    await loadFromLocalFallback();
+                });
+
+                if (runWriteTest) {
+                    showToast("¡Conectado y guardando en Firebase!");
+                }
+                return true;
+            } catch (err) {
+                isFirebaseConnected = false;
+                setLiveStatus(
+                    "error",
+                    "Error al guardar en Firebase",
+                    `❌ Firebase respondió con el error: <strong>${err.code || err.message}</strong>.<br>1. Verifica que creaste <strong>Firestore Database</strong> en tu consola de Firebase.<br>2. En la pestaña <strong>Reglas (Rules)</strong> pon <code>allow read, write: if true;</code> y dale a Publicar.`
+                );
+                showToast("Error de Firebase: revisa el cuadro de diagnóstico");
+                await loadFromLocalFallback();
+                return false;
+            }
+        }
+
+        async function initApp() {
+            lucide.createIcons();
+
+            const savedLogo = localStorage.getItem("florens_custom_logo");
+            if (savedLogo) {
+                const logoImg = document.getElementById("customLogoImg");
+                logoImg.src = savedLogo;
+                logoImg.classList.remove("hidden");
+                document.getElementById("svgFallbackLogo").classList.add("hidden");
+            }
+
+            document.getElementById("adminWhatsappInput").value = STORE_WHATSAPP;
+
+            let activeConfig = null;
+            if (isValidConfig(FIREBASE_CONFIG_DEFAULT)) {
+                activeConfig = FIREBASE_CONFIG_DEFAULT;
+            } else {
+                try {
+                    const saved = JSON.parse(localStorage.getItem("florens_firebase_config") || "null");
+                    if (isValidConfig(saved)) activeConfig = saved;
+                } catch (e) {}
+            }
+
+            if (activeConfig) {
+                populateFirebaseInputs(activeConfig);
+                await connectToFirebaseLive(activeConfig, false);
+            } else {
+                populateFirebaseInputs(FIREBASE_CONFIG_DEFAULT);
+                await connectToFirebaseLive(null, false);
+            }
+
+            setTimeout(checkSharedDeepLink, 500);
+        }
+
+        async function loadFromLocalFallback() {
+            isFirebaseConnected = false;
+            let items = await getLocalItems();
+            items = ensureAllItemsHaveUniqueCode(items);
+            catalogItems = sortCatalogItems(items);
+            renderAll();
+            checkSharedDeepLink();
+        }
+
+        function sortCatalogItems(items) {
+            return [...items].sort((a, b) => {
+                if (Boolean(b.featured) !== Boolean(a.featured)) {
+                    return b.featured ? 1 : -1;
+                }
+                return (b.createdAt || 0) - (a.createdAt || 0);
+            });
+        }
+
+        function renderAll() {
+            renderCategoryFilters();
+            renderCatalogGrid();
+            renderAdminCatalogList();
+            lucide.createIcons();
+        }
+
+        function getFilteredCatalogItems() {
+            let list = catalogItems;
+
+            // Si hay búsqueda por código (1 o varios códigos separados por coma o espacio)
+            if (searchQueryCode && searchQueryCode.trim() !== "") {
+                const terms = searchQueryCode
+                    .toUpperCase()
+                    .split(/[\s,;]+/)
+                    .map(t => t.replace(/[^A-Z0-9]/g, ""))
+                    .filter(Boolean);
+
+                if (terms.length > 0) {
+                    return list.filter(item => {
+                        const itemCode = String(item.code || "").toUpperCase();
+                        return terms.some(t => itemCode.includes(t));
+                    });
+                }
+            }
+
+            if (activeCategory === "Todo") {
+                return list;
+            }
+            return list.filter(item => (item.category || "Todo") === activeCategory);
+        }
+
+        window.handleCodeSearch = function(val) {
+            searchQueryCode = (val || "").trim();
+            const clearBtn = document.getElementById("clearSearchBtn");
+            if (clearBtn) {
+                clearBtn.classList.toggle("hidden", searchQueryCode.length === 0);
+            }
+            if (searchQueryCode.length === 0) {
+                document.getElementById("sharedSelectionBanner")?.classList.add("hidden");
+            }
+            renderCatalogGrid();
+
+            // Si escribió un código exacto de 8 caracteres y coincide con una sola prenda, podemos resaltarla
+            const filtered = getFilteredCatalogItems();
+            if (searchQueryCode.length === 8 && filtered.length === 1) {
+                showToast(`Prenda encontrada: #${filtered[0].code}`);
+            }
+        };
+
+        window.clearCodeSearch = function() {
+            searchQueryCode = "";
+            const input = document.getElementById("codeSearchInput");
+            if (input) input.value = "";
+            document.getElementById("clearSearchBtn")?.classList.add("hidden");
+            document.getElementById("sharedSelectionBanner")?.classList.add("hidden");
+            // Limpiar parámetros de la URL sin recargar
+            if (window.location.search) {
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+            renderAll();
+        };
+
+        function renderCategoryFilters() {
+            const container = document.getElementById("categoryFiltersContainer");
+            const fixedOrder = ["Todo", "Nueva Colección", "Destacados", "Exclusivos"];
+            const dynamicCats = new Set(fixedOrder);
+
+            catalogItems.forEach(item => {
+                if (item.category && item.category.trim() !== "") {
+                    dynamicCats.add(item.category.trim());
+                }
+            });
+
+            container.innerHTML = Array.from(dynamicCats).map(cat => {
+                const isActive = cat === activeCategory;
+                return `
+                    <button onclick="setActiveCategory('${cat.replace(/'/g, "\\'")}')"
+                        class="px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${
+                            isActive 
+                            ? 'btn-gold font-semibold shadow-md' 
+                            : 'bg-cream-50/90 text-espresso-800 border border-gold-300/60 hover:bg-gold-100/50'
+                        }">
+                        ${cat}
+                    </button>
+                `;
+            }).join("");
+        }
+
+        window.setActiveCategory = function(cat) {
+            activeCategory = cat;
+            renderAll();
+        };
+
+        function renderCatalogGrid() {
+            const grid = document.getElementById("catalogGrid");
+            const emptyState = document.getElementById("emptyState");
+            const countLabel = document.getElementById("catalogCountLabel");
+            const filtered = getFilteredCatalogItems();
+
+            countLabel.textContent = `${filtered.length} ${filtered.length === 1 ? 'prenda disponible' : 'prendas disponibles'}`;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = "";
+                emptyState.classList.remove("hidden");
+                return;
+            }
+
+            emptyState.classList.add("hidden");
+
+            grid.innerHTML = filtered.map((item, idx) => {
+                const isSelected = selectedClientIds.has(item.id);
+                const showBadge = item.category && item.category !== "Todo" && item.category !== "General";
+                const itemCode = item.code || "--------";
+
+                return `
+                    <article onclick="handleCardClick('${item.id}', ${idx})" 
+                        style="animation-delay: ${Math.min(idx * 35, 350)}ms"
+                        class="catalog-card group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-white border ${
+                            isSelected ? 'ring-4 ring-gold-500 border-gold-500' : 'border-gold-200/80'
+                        } cursor-pointer select-none aspect-[3/4] flex flex-col justify-end shadow-sm">
+                        
+                        <img src="${item.imageUrl}" alt="Prenda ${itemCode}" loading="lazy"
+                             class="card-img absolute inset-0 w-full h-full object-cover">
+
+                        <div class="absolute inset-0 bg-gradient-to-t from-espresso-900/85 via-espresso-900/15 to-transparent opacity-90 sm:opacity-75 sm:group-hover:opacity-95 transition-opacity duration-300"></div>
+
+                        <!-- Etiqueta de Código Único de 8 caracteres -->
+                        <div class="absolute top-2.5 left-2.5 z-10 flex flex-col items-start gap-1">
+                            <span class="px-2.5 py-1 rounded-lg text-[10px] sm:text-[11px] font-mono font-bold tracking-wider uppercase bg-espresso-900/80 text-gold-200 backdrop-blur-md border border-gold-400/50 shadow-sm">
+                                #${itemCode}
+                            </span>
+                            ${showBadge ? `
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-semibold tracking-wider uppercase bg-cream-50/90 text-gold-800 backdrop-blur-md border border-gold-300/60 shadow-sm">
+                                    ${item.category}
+                                </span>
+                            ` : ''}
+                        </div>
+
+                        <!-- Botón siempre visible para seleccionar 2 o más prendas -->
+                        <div class="absolute top-2.5 right-2.5 z-10">
+                            <button onclick="event.stopPropagation(); toggleSelectClientItem('${item.id}')" 
+                                title="Seleccionar prenda para cotizar varias"
+                                class="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center ${
+                                    isSelected ? 'btn-gold ring-2 ring-white scale-105' : 'bg-espresso-900/65 text-white hover:bg-espresso-900 border border-white/30'
+                                } backdrop-blur-md shadow-md transition-all">
+                                <i data-lucide="${isSelected ? 'check' : 'plus'}" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+
+                        <div class="relative z-10 p-2.5 sm:p-3.5 w-full transform translate-y-0 transition-transform duration-300">
+                            <button onclick="event.stopPropagation(); quoteSingleItem('${item.id}')"
+                                class="w-full py-2 sm:py-2.5 px-2.5 rounded-xl btn-gold text-[11px] sm:text-xs font-semibold flex items-center justify-center gap-1.5 shadow-md">
+                                <i data-lucide="message-circle" class="w-3.5 h-3.5 shrink-0"></i>
+                                <span class="truncate">Contacta para cotizar</span>
+                            </button>
+                        </div>
+                    </article>
+                `;
+            }).join("");
+
+            lucide.createIcons();
+        }
+
+        window.toggleMultiSelectMode = function() {
+            isMultiSelectMode = !isMultiSelectMode;
+            const btnText = document.getElementById("multiSelectBtnText");
+            const btn = document.getElementById("toggleMultiSelectBtn");
+
+            if (isMultiSelectMode) {
+                btnText.textContent = "Cancelar selección";
+                btn.classList.add("bg-gold-200/80", "border-gold-600");
+                showToast("Toca las prendas que deseas para cotizarlas juntas");
+            } else {
+                btnText.textContent = "Seleccionar varias";
+                btn.classList.remove("bg-gold-200/80", "border-gold-600");
+                clearMultiSelection();
+            }
+            renderCatalogGrid();
+        };
+
+        window.toggleSelectClientItem = function(id) {
+            if (selectedClientIds.has(id)) {
+                selectedClientIds.delete(id);
+            } else {
+                selectedClientIds.add(id);
+            }
+            updateMultiSelectBar();
+            renderCatalogGrid();
+        };
+
+        window.clearMultiSelection = function() {
+            selectedClientIds.clear();
+            updateMultiSelectBar();
+            renderCatalogGrid();
+        };
+
+        function updateMultiSelectBar() {
+            const bar = document.getElementById("multiSelectBar");
+            const badge = document.getElementById("selectedCountBadge");
+            const titleEl = document.getElementById("multiSelectStatusTitle");
+            const subEl = document.getElementById("multiSelectStatusSub");
+            const actionBtn = document.getElementById("multiQuoteActionBtn");
+            const actionText = document.getElementById("multiQuoteActionText");
+
+            const selectedItems = catalogItems.filter(x => selectedClientIds.has(x.id));
+            const count = selectedItems.length;
+            badge.textContent = count;
+
+            if (count > 0) {
+                bar.classList.remove("translate-y-36", "opacity-0", "pointer-events-none");
+                const codesList = selectedItems.map(x => `#${x.code}`).join(", ");
+                if (subEl) subEl.textContent = codesList;
+
+                if (count >= 2) {
+                    if (titleEl) titleEl.textContent = `${count} prendas seleccionadas`;
+                    if (actionText) actionText.textContent = `Cotizar prendas (${count})`;
+                    if (actionBtn) actionBtn.classList.remove("opacity-60");
+                } else {
+                    if (titleEl) titleEl.textContent = "1 prenda marcada";
+                    if (actionText) actionText.textContent = "Cotizar prenda";
+                }
+            } else {
+                bar.classList.add("translate-y-36", "opacity-0", "pointer-events-none");
+            }
+        }
+
+        window.handleCardClick = function(id, idx) {
+            if (isMultiSelectMode) {
+                toggleSelectClientItem(id);
+                return;
+            }
+            openLightbox(idx);
+        };
+
+        function openLightbox(idx) {
+            const filtered = getFilteredCatalogItems();
+            if (!filtered[idx]) return;
+            currentLightboxIndex = idx;
+            updateLightboxContent();
+
+            const modal = document.getElementById("lightboxModal");
+            const card = document.getElementById("lightboxCard");
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+            requestAnimationFrame(() => {
+                modal.classList.remove("opacity-0");
+                card.classList.remove("scale-95");
+            });
+        }
+
+        function updateLightboxContent() {
+            const filtered = getFilteredCatalogItems();
+            const item = filtered[currentLightboxIndex];
+            if (!item) return;
+
+            document.getElementById("lightboxImage").src = item.imageUrl;
+            document.getElementById("lightboxCategoryTag").textContent = item.category || "FLORENS STORE";
+            const codeEl = document.getElementById("lightboxCodeTag");
+            if (codeEl) codeEl.textContent = item.code || "--------";
+        }
+
+        window.copyCurrentLightboxCode = function() {
+            const filtered = getFilteredCatalogItems();
+            const item = filtered[currentLightboxIndex];
+            if (!item || !item.code) return;
+
+            const tempInput = document.createElement("textarea");
+            tempInput.value = item.code;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+            showToast(`Código ${item.code} copiado`);
+        };
+
+        window.closeLightbox = function() {
+            const modal = document.getElementById("lightboxModal");
+            const card = document.getElementById("lightboxCard");
+            modal.classList.add("opacity-0");
+            card.classList.add("scale-95");
+            setTimeout(() => {
+                modal.classList.add("hidden");
+                modal.classList.remove("flex");
+            }, 250);
+        };
+
+        window.navigateLightbox = function(dir) {
+            const filtered = getFilteredCatalogItems();
+            if (filtered.length === 0) return;
+            currentLightboxIndex = (currentLightboxIndex + dir + filtered.length) % filtered.length;
+            updateLightboxContent();
+        };
+
+        function buildProductReferenceLink(item) {
+            const baseUrl = window.location.origin + window.location.pathname;
+            return `${baseUrl}?codigo=${encodeURIComponent(item.code || item.id)}`;
+        }
+
+        window.quoteSingleItem = function(id) {
+            const item = catalogItems.find(x => x.id === id);
+            if (!item) return;
+            const code = item.code || "SIN-CODIGO";
+            const directLink = buildProductReferenceLink(item);
+            const message = `${WHATSAPP_GREETING}\n\nCódigo de la prenda: *${code}*\nVer foto directa: ${directLink}`;
+            const waUrl = `https://wa.me/${STORE_WHATSAPP.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
+            window.open(waUrl, "_blank");
+        };
+
+        window.quoteCurrentLightboxItem = function() {
+            const filtered = getFilteredCatalogItems();
+            const item = filtered[currentLightboxIndex];
+            if (item) quoteSingleItem(item.id);
+        };
+
+        window.quoteMultipleSelected = function() {
+            const selectedItems = catalogItems.filter(x => selectedClientIds.has(x.id));
+            if (selectedItems.length === 0) return;
+
+            if (selectedItems.length === 1) {
+                quoteSingleItem(selectedItems[0].id);
+                return;
+            }
+
+            const codesArray = selectedItems.map(item => item.code || item.id);
+            const codesFormatted = selectedItems.map((item, i) => `${i + 1}. Código: *${item.code}*`).join("\n");
+            const baseUrl = window.location.origin + window.location.pathname;
+            const multiLink = `${baseUrl}?codigos=${encodeURIComponent(codesArray.join(","))}`;
+
+            const message = `${WHATSAPP_GREETING}\n\nMe interesan estas ${selectedItems.length} prendas:\n${codesFormatted}\n\nVer fotos seleccionadas:\n${multiLink}`;
+            const waUrl = `https://wa.me/${STORE_WHATSAPP.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
+            window.open(waUrl, "_blank");
+        };
+
+        window.openDirectStoreWhatsApp = function() {
+            const waUrl = `https://wa.me/${STORE_WHATSAPP.replace(/\D/g, '')}?text=${encodeURIComponent(WHATSAPP_GREETING)}`;
+            window.open(waUrl, "_blank");
+        };
+        let hasHandledDeepLink = false;
+        function checkSharedDeepLink() {
+            if (hasHandledDeepLink || catalogItems.length === 0) return;
+            const params = new URLSearchParams(window.location.search);
+            const singleCode = params.get("codigo") || params.get("prenda");
+            const multiCodes = params.get("codigos");
+
+            if (singleCode) {
+                hasHandledDeepLink = true;
+                const clean = singleCode.trim().toUpperCase();
+                const idx = catalogItems.findIndex(x => (x.code && x.code.toUpperCase() === clean) || x.id === singleCode);
+                if (idx !== -1) {
+                    activeCategory = "Todo";
+                    searchQueryCode = catalogItems[idx].code || "";
+                    const input = document.getElementById("codeSearchInput");
+                    if (input) input.value = searchQueryCode;
+                    document.getElementById("clearSearchBtn")?.classList.remove("hidden");
+                    renderAll();
+                    openLightbox(0);
+                }
+            } else if (multiCodes) {
+                hasHandledDeepLink = true;
+                activeCategory = "Todo";
+                searchQueryCode = multiCodes.split(",").map(c => c.trim().toUpperCase()).join(" ");
+                const input = document.getElementById("codeSearchInput");
+                if (input) input.value = searchQueryCode;
+                document.getElementById("clearSearchBtn")?.classList.remove("hidden");
+
+                const banner = document.getElementById("sharedSelectionBanner");
+                const bannerText = document.getElementById("sharedSelectionBannerText");
+                if (banner && bannerText) {
+                    banner.classList.remove("hidden");
+                    bannerText.textContent = `Mostrando las prendas del pedido (${multiCodes.split(",").length} códigos)`;
+                }
+                renderAll();
+            }
+        }
+
+        window.openAdminModal = function() {
+            const modal = document.getElementById("adminModal");
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+
+            if (isAdminAuthenticated) {
+                document.getElementById("adminLoginView").classList.add("hidden");
+                document.getElementById("adminDashboardView").classList.remove("hidden");
+                renderAdminCatalogList();
+            } else {
+                document.getElementById("adminLoginView").classList.remove("hidden");
+                document.getElementById("adminDashboardView").classList.add("hidden");
+                document.getElementById("adminPinInput").focus();
+            }
+        };
+
+        window.closeAdminModal = function() {
+            const modal = document.getElementById("adminModal");
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+        };
+
+        window.handleAdminLogin = function(e) {
+            e.preventDefault();
+            const input = document.getElementById("adminPinInput").value.trim();
+            if (input === adminPin) {
+                isAdminAuthenticated = true;
+                document.getElementById("adminPinInput").value = "";
+                document.getElementById("adminLoginView").classList.add("hidden");
+                document.getElementById("adminDashboardView").classList.remove("hidden");
+                renderAdminCatalogList();
+                showToast("Bienvenido al Panel Administrador");
+            } else {
+                showToast("Clave incorrecta");
+            }
+        };
+
+        window.switchAdminTab = function(tabName) {
+            ["upload", "manage", "settings"].forEach(t => {
+                document.getElementById(`adminTab-${t}`).classList.toggle("hidden", t !== tabName);
+                const btn = document.getElementById(`tabBtn-${t}`);
+                if (t === tabName) {
+                    btn.classList.add("border-gold-500", "text-gold-800", "font-semibold");
+                    btn.classList.remove("border-transparent", "text-espresso-800/70", "font-medium");
+                } else {
+                    btn.classList.remove("border-gold-500", "text-gold-800", "font-semibold");
+                    btn.classList.add("border-transparent", "text-espresso-800/70", "font-medium");
+                }
+            });
+            if (tabName === "manage") renderAdminCatalogList();
+        };
+
+        window.handleDragOver = function(e) {
+            e.preventDefault();
+            document.getElementById("dropZone").classList.add("ring-4", "ring-gold-400");
+        };
+
+        window.handleDragLeave = function(e) {
+            e.preventDefault();
+            document.getElementById("dropZone").classList.remove("ring-4", "ring-gold-400");
+        };
+
+        window.handleDropFiles = function(e) {
+            e.preventDefault();
+            document.getElementById("dropZone").classList.remove("ring-4", "ring-gold-400");
+            if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+                processBatchFiles(Array.from(e.dataTransfer.files));
+            }
+        };
+
+        window.handleFileSelect = function(e) {
+            if (e.target.files && e.target.files.length > 0) {
+                processBatchFiles(Array.from(e.target.files));
+                e.target.value = "";
+            }
+        };
+        function compressImageFile(file, maxWidth = 900, quality = 0.76) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = (ev) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        let w = img.width;
+                        let h = img.height;
+                        if (w > maxWidth) {
+                            h = Math.round((h * maxWidth) / w);
+                            w = maxWidth;
+                        }
+                        const canvas = document.createElement("canvas");
+                        canvas.width = w;
+                        canvas.height = h;
+                        const ctx = canvas.getContext("2d");
+                        ctx.drawImage(img, 0, 0, w, h);
+                        let dataUrl = canvas.toDataURL("image/jpeg", quality);
+                        // Garantizar que quepa holgadamente en un documento de Firestore (< 900KB)
+                        if (dataUrl.length > 850000) {
+                            dataUrl = canvas.toDataURL("image/jpeg", 0.58);
+                        }
+                        resolve(dataUrl);
+                    };
+                    img.onerror = reject;
+                    img.src = ev.target.result;
+                };
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+
+        async function processBatchFiles(files) {
+            const imageFiles = files.filter(f => f.type.startsWith("image/"));
+            if (imageFiles.length === 0) {
+                showToast("Selecciona archivos de imagen válidos");
+                return;
+            }
+
+            const customCat = document.getElementById("customCategoryInput").value.trim();
+            const selectedCat = customCat || document.getElementById("batchCategorySelect").value || "Nueva Colección";
+            const isFeatured = document.getElementById("batchFeaturedToggle").checked;
+
+            const progContainer = document.getElementById("batchProgressContainer");
+            const progBar = document.getElementById("batchProgressBar");
+            const progNums = document.getElementById("batchProgressNumbers");
+
+            progContainer.classList.remove("hidden");
+            const total = imageFiles.length;
+            let uploadedCount = 0;
+            let lastErrorMsg = "";
+
+            // Recolectamos todos los códigos actualmente en uso (los de prendas eliminadas ya no están aquí y quedan libres)
+            const existingCodes = new Set(
+                catalogItems
+                    .map(item => (item.code ? String(item.code).trim().toUpperCase() : ""))
+                    .filter(Boolean)
+            );
+
+            for (let i = 0; i < total; i++) {
+                progNums.textContent = `${i + 1} / ${total}`;
+                progBar.style.width = `${Math.round(((i + 1) / total) * 100)}%`;
+
+                try {
+                    const dataUrl = await compressImageFile(imageFiles[i]);
+                    const id = `florens_${Date.now()}_${Math.random().toString(36).substring(2, 8)}`;
+                    const uniqueCode = generateUnique8CharCode(existingCodes);
+
+                    const newItem = {
+                        id,
+                        code: uniqueCode,
+                        imageUrl: dataUrl,
+                        category: selectedCat,
+                        featured: isFeatured,
+                        createdAt: Date.now() + i
+                    };
+
+                    if (isFirebaseConnected && db) {
+                        // Guardamos directamente en Firestore para no requerir plan de pago de Firebase Storage
+                        await setDoc(doc(db, "florens_catalogo", id), newItem);
+                        uploadedCount++;
+                    } else {
+                        await saveLocalItem(newItem);
+                        catalogItems.unshift(newItem);
+                        uploadedCount++;
+                    }
+                } catch (err) {
+                    console.error("Error subiendo imagen:", err);
+                    lastErrorMsg = err.code || err.message || "Error de permisos en Firestore";
+                }
+            }
+
+            document.getElementById("customCategoryInput").value = "";
+            if (!isFirebaseConnected) {
+                catalogItems = sortCatalogItems(catalogItems);
+                renderAll();
+            }
+
+            setTimeout(() => {
+                progContainer.classList.add("hidden");
+                progBar.style.width = "0%";
+                if (uploadedCount === total) {
+                    showToast(`¡${uploadedCount} ${uploadedCount === 1 ? 'imagen guardada' : 'imágenes guardadas'} con éxito!`);
+                } else {
+                    showToast(`Subidas: ${uploadedCount}/${total}. Error: ${lastErrorMsg}`);
+                }
+            }, 500);
+        }
+
+        function getAdminFilteredItems() {
+            const filterVal = document.getElementById("adminFilterCategory")?.value || "ALL";
+            if (filterVal === "ALL") return catalogItems;
+            return catalogItems.filter(item => (item.category || "Todo") === filterVal);
+        }
+
+        window.renderAdminCatalogList = function() {
+            const container = document.getElementById("adminCatalogList");
+            const totalCountEl = document.getElementById("adminTotalItemsCount");
+            if (totalCountEl) totalCountEl.textContent = catalogItems.length;
+            if (!container) return;
+
+            const list = getAdminFilteredItems();
+            updateAdminBatchBar();
+
+            if (list.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full py-12 text-center text-xs text-espresso-800/60">
+                        No hay prendas en esta sección todavía.
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = list.map(item => {
+                const isChecked = adminSelectedIds.has(item.id);
+                return `
+                    <div onclick="toggleAdminSelectItem('${item.id}')" 
+                         class="relative group rounded-2xl overflow-hidden border-2 ${
+                             isChecked ? 'border-gold-500 ring-2 ring-gold-400' : 'border-gold-200'
+                         } bg-white aspect-[3/4] cursor-pointer select-none">
+                        <img src="${item.imageUrl}" class="w-full h-full object-cover" loading="lazy">
+                        
+                        <div class="absolute top-2 left-2 flex items-center gap-1">
+                            <div class="w-6 h-6 rounded-lg flex items-center justify-center ${
+                                isChecked ? 'btn-gold' : 'bg-espresso-900/60 text-white'
+                            }">
+                                <i data-lucide="${isChecked ? 'check-square' : 'square'}" class="w-3.5 h-3.5"></i>
+                            </div>
+                            <span class="px-1.5 py-0.5 rounded bg-espresso-900/80 text-gold-200 font-mono text-[10px] font-bold">
+                                #${item.code || '--------'}
+                            </span>
+                        </div>
+
+                        <button onclick="event.stopPropagation(); deleteSingleItem('${item.id}')" 
+                            title="Eliminar prenda"
+                            class="absolute top-2 right-2 w-7 h-7 rounded-lg bg-red-600/90 text-white flex items-center justify-center opacity-90 hover:bg-red-700 transition">
+                            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                        </button>
+
+                        <div class="absolute bottom-0 inset-x-0 bg-espresso-900/80 backdrop-blur-sm px-2 py-1.5 text-[10px] text-cream-50 font-medium truncate">
+                            ${item.category || 'Todo'}
+                        </div>
+                    </div>
+                `;
+            }).join("");
+
+            lucide.createIcons();
+        };
+
+        window.toggleAdminSelectItem = function(id) {
+            if (adminSelectedIds.has(id)) {
+                adminSelectedIds.delete(id);
+            } else {
+                adminSelectedIds.add(id);
+            }
+            renderAdminCatalogList();
+        };
+
+        window.selectAllAdminItems = function() {
+            const currentList = getAdminFilteredItems();
+            const allSelected = currentList.length > 0 && currentList.every(x => adminSelectedIds.has(x.id));
+
+            if (allSelected) {
+                currentList.forEach(x => adminSelectedIds.delete(x.id));
+            } else {
+                currentList.forEach(x => adminSelectedIds.add(x.id));
+            }
+            renderAdminCatalogList();
+        };
+
+        function updateAdminBatchBar() {
+            const bar = document.getElementById("adminBatchActionsBar");
+            const countEl = document.getElementById("adminSelectedActionCount");
+            if (!bar || !countEl) return;
+
+            countEl.textContent = adminSelectedIds.size;
+            bar.classList.toggle("hidden", adminSelectedIds.size === 0);
+        }
+
+        window.applyBatchCategoryChange = async function() {
+            if (adminSelectedIds.size === 0) return;
+            const targetCat = document.getElementById("adminBatchNewCategory").value;
+            const ids = Array.from(adminSelectedIds);
+
+            for (const id of ids) {
+                const item = catalogItems.find(x => x.id === id);
+                if (!item) continue;
+                item.category = targetCat;
+
+                if (isFirebaseConnected && db) {
+                    try {
+                        await updateDoc(doc(db, "florens_catalogo", id), { category: targetCat });
+                    } catch (e) {}
+                } else {
+                    await saveLocalItem(item);
+                }
+            }
+
+            adminSelectedIds.clear();
+            renderAll();
+            showToast(`Prendas movidas a "${targetCat}"`);
+        };
+
+        window.deleteSingleItem = async function(id) {
+            const item = catalogItems.find(x => x.id === id);
+            if (!item) return;
+
+            if (isFirebaseConnected && db) {
+                try {
+                    await deleteDoc(doc(db, "florens_catalogo", id));
+                } catch (e) {}
+            } else {
+                await deleteLocalItem(id);
+                catalogItems = catalogItems.filter(x => x.id !== id);
+            }
+
+            adminSelectedIds.delete(id);
+            selectedClientIds.delete(id);
+            renderAll();
+            showToast("Prenda eliminada");
+        };
+
+        window.deleteSelectedAdminItems = async function() {
+            if (adminSelectedIds.size === 0) return;
+            const ids = Array.from(adminSelectedIds);
+            for (const id of ids) {
+                await window.deleteSingleItem(id);
+            }
+            adminSelectedIds.clear();
+            renderAll();
+            showToast(`${ids.length} prendas eliminadas`);
+        };
+
+        window.handleLogoUpload = async function(e) {
+            const file = e.target.files?.[0];
+            if (!file) return;
+            const dataUrl = await compressImageFile(file, 500, 0.85);
+            localStorage.setItem("florens_custom_logo", dataUrl);
+
+            if (isFirebaseConnected && db) {
+                try {
+                    await setDoc(doc(db, "florens_config", "general"), { customLogo: dataUrl }, { merge: true });
+                } catch (err) {
+                    console.error("Error guardando logo en Firebase:", err);
+                }
+            }
+
+            const logoImg = document.getElementById("customLogoImg");
+            logoImg.src = dataUrl;
+            logoImg.classList.remove("hidden");
+            document.getElementById("svgFallbackLogo").classList.add("hidden");
+            showToast("Logo actualizado");
+        };
+
+        window.resetToSvgLogo = async function() {
+            localStorage.removeItem("florens_custom_logo");
+            if (isFirebaseConnected && db) {
+                try {
+                    await setDoc(doc(db, "florens_config", "general"), { customLogo: null }, { merge: true });
+                } catch (err) {}
+            }
+            document.getElementById("customLogoImg").classList.add("hidden");
+            document.getElementById("svgFallbackLogo").classList.remove("hidden");
+            showToast("Logo dorado restaurado");
+        };
+
+        window.saveStoreSettings = async function() {
+            const val = document.getElementById("adminWhatsappInput").value.trim();
+            if (val) {
+                STORE_WHATSAPP = val.replace(/\D/g, "");
+                localStorage.setItem("florens_whatsapp", STORE_WHATSAPP);
+                if (isFirebaseConnected && db) {
+                    try {
+                        await setDoc(doc(db, "florens_config", "general"), { whatsapp: STORE_WHATSAPP }, { merge: true });
+                    } catch (err) {}
+                }
+                showToast("WhatsApp actualizado");
+            }
+        };
+
+        function populateFirebaseInputs(cfg) {
+            if (!cfg) return;
+            ["apiKey", "authDomain", "projectId", "storageBucket", "messagingSenderId", "appId"].forEach(k => {
+                const el = document.getElementById(`fb_${k}`);
+                if (el) {
+                    const val = cfg[k] ? String(cfg[k]).trim() : "";
+                    el.value = (val && !val.includes("PEGA_AQUI") && !val.includes("tu-proyecto")) ? val : "";
+                }
+            });
+        }
+
+        window.parseRawFirebaseConfig = function(rawText) {
+            if (!rawText) return;
+            const keys = ["apiKey", "authDomain", "projectId", "storageBucket", "messagingSenderId", "appId"];
+            let foundAny = false;
+            keys.forEach(k => {
+                const regex = new RegExp(k + `\\s*[:=]\\s*["'\`]([^"'\`]+)["'\`]`, "i");
+                const match = rawText.match(regex);
+                if (match && match[1]) {
+                    const input = document.getElementById(`fb_${k}`);
+                    if (input) {
+                        input.value = match[1].trim();
+                        foundAny = true;
+                    }
+                }
+            });
+            if (foundAny) {
+                showToast("¡Llaves extraídas! Ahora toca 'Guardar y Conectar en Vivo'");
+                window.saveFirebaseConfigFromUI();
+            }
+        };
+
+        function readConfigFromInputs() {
+            return {
+                apiKey: document.getElementById("fb_apiKey")?.value.trim() || "",
+                authDomain: document.getElementById("fb_authDomain")?.value.trim() || "",
+                projectId: document.getElementById("fb_projectId")?.value.trim() || "",
+                storageBucket: document.getElementById("fb_storageBucket")?.value.trim() || "",
+                messagingSenderId: document.getElementById("fb_messagingSenderId")?.value.trim() || "",
+                appId: document.getElementById("fb_appId")?.value.trim() || ""
+            };
+        }
+
+        window.testAndConnectFirebase = async function() {
+            let cfg = readConfigFromInputs();
+            if (!isValidConfig(cfg) && isValidConfig(FIREBASE_CONFIG_DEFAULT)) {
+                cfg = FIREBASE_CONFIG_DEFAULT;
+                populateFirebaseInputs(cfg);
+            }
+            await connectToFirebaseLive(cfg, true);
+        };
+
+        window.saveFirebaseConfigFromUI = async function() {
+            const cfg = readConfigFromInputs();
+            if (!isValidConfig(cfg)) {
+                setLiveStatus("error", "Faltan datos", "Debes llenar al menos <strong>apiKey</strong> y <strong>projectId</strong> con los datos de tu proyecto Firebase.");
+                showToast("Pega primero tus llaves en las casillas");
+                return;
+            }
+            localStorage.setItem("florens_firebase_config", JSON.stringify(cfg));
+            await connectToFirebaseLive(cfg, true);
+        };
+
+        window.togglePasswordVisibility = function() {
+            ["currentAdminPinInput", "newAdminPinInput", "confirmAdminPinInput"].forEach(id => {
+                const input = document.getElementById(id);
+                if (input) {
+                    input.type = input.type === "password" ? "text" : "password";
+                }
+            });
+        };
+
+        window.updateAdminPin = async function() {
+            const currentVal = document.getElementById("currentAdminPinInput").value.trim();
+            const newPin = document.getElementById("newAdminPinInput").value.trim();
+            const confirmPin = document.getElementById("confirmAdminPinInput").value.trim();
+
+            if (currentVal !== adminPin) {
+                showToast("La contraseña actual no coincide");
+                return;
+            }
+            if (newPin.length < 4) {
+                showToast("La nueva contraseña debe tener al menos 4 caracteres");
+                return;
+            }
+            if (newPin !== confirmPin) {
+                showToast("La confirmación no coincide con la nueva contraseña");
+                return;
+            }
+
+            adminPin = newPin;
+            localStorage.setItem("florens_admin_pin", newPin);
+            if (isFirebaseConnected && db) {
+                try {
+                    await setDoc(doc(db, "florens_config", "general"), { adminPin: newPin }, { merge: true });
+                } catch (err) {}
+            }
+            document.getElementById("currentAdminPinInput").value = "";
+            document.getElementById("newAdminPinInput").value = "";
+            document.getElementById("confirmAdminPinInput").value = "";
+            showToast("Contraseña actualizada correctamente");
+        };
+
+        function showToast(msg) {
+            const toast = document.getElementById("toastNotification");
+            document.getElementById("toastMessage").textContent = msg;
+            toast.classList.remove("translate-x-96", "opacity-0");
+            setTimeout(() => {
+                toast.classList.add("translate-x-96", "opacity-0");
+            }, 2800);
+        }
+
+        window.addEventListener("DOMContentLoaded", initApp);
+    </script>
+</body>
+</html>
