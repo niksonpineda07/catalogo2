@@ -444,28 +444,56 @@
                     <!-- TAB 1: UPLOAD -->
                     <div id="adminTab-upload" class="space-y-5">
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5">
-                            <div class="md:col-span-2 bg-white p-4 rounded-2xl border border-gold-200 shadow-sm">
-                                <label class="block text-xs font-semibold uppercase tracking-wider text-gold-700 mb-2">
-                                    1. Categoría para este lote de fotos
-                                </label>
-                                <div class="flex flex-col sm:flex-row gap-2">
-                                    <select id="batchCategorySelect" class="flex-1 px-3.5 py-2.5 rounded-xl border border-gold-300 bg-cream-50 text-xs sm:text-sm font-medium focus:outline-none focus:border-gold-500">
-                                        <option value="Nueva Colección">Nueva Colección</option>
-                                        <option value="Destacados">Destacados</option>
-                                        <option value="Exclusivos">Exclusivos</option>
-                                        <option value="Todo">Todo</option>
-                                    </select>
-                                    <input type="text" id="customCategoryInput" placeholder="O crea otra categoría..." 
-                                        class="flex-1 px-3.5 py-2.5 rounded-xl border border-gold-200 bg-white text-xs sm:text-sm focus:outline-none focus:border-gold-500">
+                            <div class="md:col-span-2 bg-white p-4 rounded-2xl border border-gold-200 shadow-sm space-y-3">
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase tracking-wider text-gold-700 mb-2">
+                                        1. Categoría de la prenda (Ej: Blusas, Vestidos, Pantalones...)
+                                    </label>
+                                    <div class="flex flex-col sm:flex-row gap-2">
+                                        <select id="batchCategorySelect" class="flex-1 px-3.5 py-2.5 rounded-xl border border-gold-300 bg-cream-50 text-xs sm:text-sm font-medium focus:outline-none focus:border-gold-500">
+                                            <option value="Blusas">Blusas</option>
+                                            <option value="Vestidos">Vestidos</option>
+                                            <option value="Conjuntos">Conjuntos</option>
+                                            <option value="Pantalones">Pantalones</option>
+                                            <option value="Faldas">Faldas</option>
+                                            <option value="Accesorios">Accesorios</option>
+                                            <option value="Nueva Colección">Solo en Nueva Colección</option>
+                                            <option value="Todo">General (Solo en Todo)</option>
+                                        </select>
+                                        <input type="text" id="customCategoryInput" placeholder="O escribe otra (ej: Chaquetas, Bodys)..." 
+                                            class="flex-1 px-3.5 py-2.5 rounded-xl border border-gold-200 bg-white text-xs sm:text-sm focus:outline-none focus:border-gold-500">
+                                    </div>
+                                </div>
+
+                                <div class="pt-2 border-t border-gold-200/70">
+                                    <label class="block text-[11px] font-semibold uppercase tracking-wider text-espresso-800/80 mb-2">
+                                        2. Mostrar también al mismo tiempo en estos apartados:
+                                    </label>
+                                    <div class="flex flex-wrap items-center gap-3">
+                                        <label class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-gold-100/70 border border-gold-300 cursor-pointer select-none">
+                                            <input type="checkbox" id="tagNewCollection" checked class="w-4 h-4 accent-gold-600 rounded">
+                                            <span class="text-xs font-semibold text-espresso-900">✨ Nueva Colección</span>
+                                        </label>
+                                        <label class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-cream-100 border border-gold-200 cursor-pointer select-none">
+                                            <input type="checkbox" id="tagDestacados" class="w-4 h-4 accent-gold-600 rounded">
+                                            <span class="text-xs font-semibold text-espresso-900">⭐ Destacados</span>
+                                        </label>
+                                        <label class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-cream-100 border border-gold-200 cursor-pointer select-none">
+                                            <input type="checkbox" id="tagExclusivos" class="w-4 h-4 accent-gold-600 rounded">
+                                            <span class="text-xs font-semibold text-espresso-900">👑 Exclusivos</span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="bg-white p-4 rounded-2xl border border-gold-200 shadow-sm flex flex-col justify-center">
                                 <label class="flex items-center gap-2.5 cursor-pointer select-none">
                                     <input type="checkbox" id="batchFeaturedToggle" class="w-4 h-4 accent-gold-600 rounded">
-                                    <span class="text-xs sm:text-sm font-semibold text-espresso-900">Mostrar primero al inicio</span>
+                                    <span class="text-xs sm:text-sm font-semibold text-espresso-900">Fijar de primeras en el catálogo</span>
                                 </label>
-                                <p class="text-[11px] text-espresso-800/60 mt-1">Soporta más de 50 imágenes simultáneas.</p>
+                                <p class="text-[11px] text-espresso-800/60 mt-1.5">
+                                    Si eliges <strong>Blusas</strong> y dejas marcado <strong>Nueva Colección</strong>, la prenda aparecerá en ambos apartados a la vez.
+                                </p>
                             </div>
                         </div>
 
@@ -536,31 +564,47 @@
                                         <option value="Nueva Colección">Ver: Nueva Colección</option>
                                         <option value="Destacados">Ver: Destacados</option>
                                         <option value="Exclusivos">Ver: Exclusivos</option>
-                                        <option value="Todo">Ver: Solo en Todo</option>
                                     </select>
                                 </div>
-                                <span class="text-[11px] text-espresso-800/70">Marca varias fotos para moverlas de sección</span>
+                                <span class="text-[11px] text-espresso-800/70">Marca varias fotos para agregarles o quitarles apartados</span>
                             </div>
 
-                            <div id="adminBatchActionsBar" class="hidden pt-2.5 border-t border-gold-200/80 flex flex-wrap items-center justify-between gap-2">
-                                <span class="text-xs font-bold text-gold-800">
-                                    <span id="adminSelectedActionCount">0</span> prendas marcadas:
-                                </span>
-                                <div class="flex flex-wrap items-center gap-2">
-                                    <select id="adminBatchNewCategory" class="px-3 py-2 rounded-xl border border-gold-400 bg-cream-50 text-xs font-semibold text-espresso-900 focus:outline-none">
-                                        <option value="Todo">Pasar a: Todo</option>
-                                        <option value="Nueva Colección">Pasar a: Nueva Colección</option>
-                                        <option value="Destacados">Pasar a: Destacados</option>
-                                        <option value="Exclusivos">Pasar a: Exclusivos</option>
-                                    </select>
-                                    <button onclick="applyBatchCategoryChange()" class="px-3.5 py-2 rounded-xl btn-gold text-xs font-semibold flex items-center gap-1.5">
-                                        <i data-lucide="folder-sync" class="w-3.5 h-3.5"></i>
-                                        <span>Cambiar Categoría</span>
-                                    </button>
-                                    <button onclick="deleteSelectedAdminItems()" class="px-3 py-2 rounded-xl bg-red-600 text-white text-xs font-semibold hover:bg-red-700 transition flex items-center gap-1">
-                                        <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
-                                        <span>Eliminar</span>
-                                    </button>
+                            <div id="adminBatchActionsBar" class="hidden pt-2.5 border-t border-gold-200/80 flex flex-col gap-2.5">
+                                <div class="flex flex-wrap items-center justify-between gap-2">
+                                    <span class="text-xs font-bold text-gold-800">
+                                        <span id="adminSelectedActionCount">0</span> prendas marcadas:
+                                    </span>
+                                    <div class="flex flex-wrap items-center gap-1.5">
+                                        <select id="adminBatchActionType" onchange="toggleBatchCustomCategoryInput(this.value)" class="px-3 py-2 rounded-xl border border-gold-400 bg-cream-50 text-xs font-semibold text-espresso-900 focus:outline-none">
+                                            <optgroup label="Quitar o Agregar de Nueva Colección / Especiales (Sin borrar su tipo de prenda)">
+                                                <option value="REMOVE_TAG:Nueva Colección">Quitar de "Nueva Colección" (Conservar en su categoría ej. Blusas)</option>
+                                                <option value="ADD_TAG:Nueva Colección">Agregar también a "Nueva Colección"</option>
+                                                <option value="ADD_TAG:Destacados">Agregar también a "Destacados"</option>
+                                                <option value="REMOVE_TAG:Destacados">Quitar de "Destacados"</option>
+                                                <option value="ADD_TAG:Exclusivos">Agregar también a "Exclusivos"</option>
+                                                <option value="REMOVE_TAG:Exclusivos">Quitar de "Exclusivos"</option>
+                                            </optgroup>
+                                            <optgroup label="Asignar Categoría Principal (También puedes dejarla en Nueva Colección)">
+                                                <option value="SET_MAIN:Blusas">Asignar a: Blusas</option>
+                                                <option value="SET_MAIN:Vestidos">Asignar a: Vestidos</option>
+                                                <option value="SET_MAIN:Conjuntos">Asignar a: Conjuntos</option>
+                                                <option value="SET_MAIN:Pantalones">Asignar a: Pantalones</option>
+                                                <option value="SET_MAIN:Faldas">Asignar a: Faldas</option>
+                                                <option value="SET_MAIN:Accesorios">Asignar a: Accesorios</option>
+                                                <option value="SET_MAIN:CUSTOM">Escribir otra categoría (Ej. Bodys, Shorts...)</option>
+                                                <option value="SET_ONLY_TODO">Dejar solo en "Todo" (Quitar de todas las demás)</option>
+                                            </optgroup>
+                                        </select>
+                                        <input type="text" id="adminBatchCustomCatInput" placeholder="Nombre de categoría..." class="hidden px-3 py-2 rounded-xl border border-gold-400 bg-white text-xs font-semibold text-espresso-900 focus:outline-none">
+                                        <button onclick="applyBatchCategoryChange()" class="px-3.5 py-2 rounded-xl btn-gold text-xs font-semibold flex items-center gap-1.5">
+                                            <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+                                            <span>Aplicar cambio</span>
+                                        </button>
+                                        <button onclick="deleteSelectedAdminItems()" class="px-3 py-2 rounded-xl bg-red-600 text-white text-xs font-semibold hover:bg-red-700 transition flex items-center gap-1">
+                                            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                                            <span>Eliminar</span>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1104,9 +1148,26 @@
             });
         }
 
+        // Devuelve todas las secciones/categorías a las que pertenece una prenda (soporta múltiples simultáneas)
+        function getItemCategories(item) {
+            const set = new Set();
+            if (Array.isArray(item.categories)) {
+                item.categories.forEach(c => {
+                    if (c && String(c).trim() && String(c).trim() !== "Todo") {
+                        set.add(String(c).trim());
+                    }
+                });
+            }
+            if (item.category && String(item.category).trim() && String(item.category).trim() !== "Todo") {
+                set.add(String(item.category).trim());
+            }
+            return Array.from(set);
+        }
+
         function renderAll() {
             renderCategoryFilters();
             renderCatalogGrid();
+            renderAdminFilterOptions();
             renderAdminCatalogList();
             lucide.createIcons();
         }
@@ -1133,7 +1194,7 @@
             if (activeCategory === "Todo") {
                 return list;
             }
-            return list.filter(item => (item.category || "Todo") === activeCategory);
+            return list.filter(item => getItemCategories(item).includes(activeCategory));
         }
 
         window.handleCodeSearch = function(val) {
@@ -1175,9 +1236,7 @@
             const dynamicCats = new Set(fixedOrder);
 
             catalogItems.forEach(item => {
-                if (item.category && item.category.trim() !== "") {
-                    dynamicCats.add(item.category.trim());
-                }
+                getItemCategories(item).forEach(cat => dynamicCats.add(cat));
             });
 
             container.innerHTML = Array.from(dynamicCats).map(cat => {
@@ -1193,6 +1252,37 @@
                     </button>
                 `;
             }).join("");
+        }
+
+        function renderAdminFilterOptions() {
+            const select = document.getElementById("adminFilterCategory");
+            if (!select) return;
+            const currentVal = select.value || "ALL";
+            const baseOptions = [
+                { val: "ALL", label: "Ver todas las secciones" },
+                { val: "Nueva Colección", label: "Ver: Nueva Colección" },
+                { val: "Destacados", label: "Ver: Destacados" },
+                { val: "Exclusivos", label: "Ver: Exclusivos" },
+                { val: "ONLY_TODO", label: "Ver: Solo en Todo (Sin sección)" }
+            ];
+            const extraCats = new Set();
+            catalogItems.forEach(item => {
+                getItemCategories(item).forEach(c => {
+                    if (!["Nueva Colección", "Destacados", "Exclusivos"].includes(c)) {
+                        extraCats.add(c);
+                    }
+                });
+            });
+
+            const allOpts = [
+                ...baseOptions,
+                ...Array.from(extraCats).map(c => ({ val: c, label: `Ver: ${c}` }))
+            ];
+
+            select.innerHTML = allOpts.map(o => `<option value="${o.val}">${o.label}</option>`).join("");
+            if (allOpts.some(o => o.val === currentVal)) {
+                select.value = currentVal;
+            }
         }
 
         window.setActiveCategory = function(cat) {
@@ -1239,7 +1329,7 @@
 
             grid.innerHTML = visibleSlice.map((item, idx) => {
                 const isSelected = selectedClientIds.has(item.id);
-                const showBadge = item.category && item.category !== "Todo" && item.category !== "General";
+                const itemCats = getItemCategories(item);
                 const itemCode = item.code || "--------";
 
                 return `
@@ -1254,16 +1344,22 @@
 
                         <div class="absolute inset-0 bg-gradient-to-t from-espresso-900/85 via-espresso-900/15 to-transparent opacity-90 sm:opacity-75 sm:group-hover:opacity-95 transition-opacity duration-300"></div>
 
-                        <!-- Etiqueta de Código Único de 8 caracteres -->
-                        <div class="absolute top-2.5 left-2.5 z-10 flex flex-col items-start gap-1">
+                        <!-- Etiqueta de Código Único de 8 caracteres y Categorías Múltiples -->
+                        <div class="absolute top-2.5 left-2.5 z-10 flex flex-col items-start gap-1 max-w-[75%]">
                             <span class="px-2.5 py-1 rounded-lg text-[10px] sm:text-[11px] font-mono font-bold tracking-wider uppercase bg-espresso-900/80 text-gold-200 backdrop-blur-md border border-gold-400/50 shadow-sm">
                                 #${itemCode}
                             </span>
-                            ${showBadge ? `
-                                <span class="px-2 py-0.5 rounded-full text-[9px] font-semibold tracking-wider uppercase bg-cream-50/90 text-gold-800 backdrop-blur-md border border-gold-300/60 shadow-sm">
-                                    ${item.category}
-                                </span>
-                            ` : ''}
+                            <div class="flex flex-wrap gap-1">
+                                ${itemCats.map(catName => `
+                                    <span class="px-2 py-0.5 rounded-full text-[9px] font-semibold tracking-wider uppercase ${
+                                        catName === 'Nueva Colección' 
+                                        ? 'bg-gold-500/95 text-white border border-gold-200/60' 
+                                        : 'bg-cream-50/90 text-gold-800 border border-gold-300/60'
+                                    } backdrop-blur-md shadow-sm">
+                                        ${catName}
+                                    </span>
+                                `).join("")}
+                            </div>
                         </div>
 
                         <!-- Botón siempre visible para seleccionar 2 o más prendas -->
@@ -1384,7 +1480,8 @@
             if (!item) return;
 
             document.getElementById("lightboxImage").src = item.imageUrl;
-            document.getElementById("lightboxCategoryTag").textContent = item.category || "FLORENS STORE";
+            const cats = getItemCategories(item);
+            document.getElementById("lightboxCategoryTag").textContent = cats.length > 0 ? cats.join(" • ") : "FLORENS STORE";
             const codeEl = document.getElementById("lightboxCodeTag");
             if (codeEl) codeEl.textContent = item.code || "--------";
         }
@@ -1703,6 +1800,20 @@
             const selectedCat = customCat || document.getElementById("batchCategorySelect").value || "Nueva Colección";
             const isFeatured = document.getElementById("batchFeaturedToggle").checked;
 
+            const addNewCol = document.getElementById("tagNewCollection")?.checked;
+            const addDestacados = document.getElementById("tagDestacados")?.checked;
+            const addExclusivos = document.getElementById("tagExclusivos")?.checked;
+
+            const categoriesSet = new Set();
+            if (selectedCat && selectedCat !== "Todo") {
+                categoriesSet.add(selectedCat);
+            }
+            if (addNewCol) categoriesSet.add("Nueva Colección");
+            if (addDestacados) categoriesSet.add("Destacados");
+            if (addExclusivos) categoriesSet.add("Exclusivos");
+
+            const categoriesList = Array.from(categoriesSet);
+
             const progContainer = document.getElementById("batchProgressContainer");
             const progBar = document.getElementById("batchProgressBar");
             const progNums = document.getElementById("batchProgressNumbers");
@@ -1733,6 +1844,7 @@
                         code: uniqueCode,
                         imageUrl: dataUrl,
                         category: selectedCat,
+                        categories: categoriesList,
                         featured: isFeatured,
                         createdAt: Date.now() + i
                     };
@@ -1772,7 +1884,10 @@
         function getAdminFilteredItems() {
             const filterVal = document.getElementById("adminFilterCategory")?.value || "ALL";
             if (filterVal === "ALL") return catalogItems;
-            return catalogItems.filter(item => (item.category || "Todo") === filterVal);
+            if (filterVal === "ONLY_TODO") {
+                return catalogItems.filter(item => getItemCategories(item).length === 0);
+            }
+            return catalogItems.filter(item => getItemCategories(item).includes(filterVal));
         }
 
         window.renderAdminCatalogList = function() {
@@ -1795,6 +1910,8 @@
 
             container.innerHTML = list.map(item => {
                 const isChecked = adminSelectedIds.has(item.id);
+                const itemCats = getItemCategories(item);
+                const catsLabel = itemCats.length > 0 ? itemCats.join(" • ") : "Solo en Todo";
                 return `
                     <div onclick="toggleAdminSelectItem('${item.id}')" 
                          class="relative group rounded-2xl overflow-hidden border-2 ${
@@ -1819,8 +1936,8 @@
                             <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
                         </button>
 
-                        <div class="absolute bottom-0 inset-x-0 bg-espresso-900/80 backdrop-blur-sm px-2 py-1.5 text-[10px] text-cream-50 font-medium truncate">
-                            ${item.category || 'Todo'}
+                        <div class="absolute bottom-0 inset-x-0 bg-espresso-900/85 backdrop-blur-sm px-2 py-1.5 text-[10px] text-cream-50 font-medium truncate" title="${catsLabel}">
+                            ${catsLabel}
                         </div>
                     </div>
                 `;
@@ -1859,19 +1976,61 @@
             bar.classList.toggle("hidden", adminSelectedIds.size === 0);
         }
 
+        window.toggleBatchCustomCategoryInput = function(val) {
+            const customInput = document.getElementById("adminBatchCustomCatInput");
+            if (customInput) {
+                customInput.classList.toggle("hidden", val !== "SET_MAIN:CUSTOM");
+                if (val === "SET_MAIN:CUSTOM") customInput.focus();
+            }
+        };
+
         window.applyBatchCategoryChange = async function() {
             if (adminSelectedIds.size === 0) return;
-            const targetCat = document.getElementById("adminBatchNewCategory").value;
+            const actionValue = document.getElementById("adminBatchActionType").value;
+            const customCatName = document.getElementById("adminBatchCustomCatInput")?.value.trim();
+
+            if (actionValue === "SET_MAIN:CUSTOM" && !customCatName) {
+                showToast("Escribe el nombre de la categoría personalizada");
+                return;
+            }
+
             const ids = Array.from(adminSelectedIds);
+            const specialTags = ["Nueva Colección", "Destacados", "Exclusivos"];
 
             for (const id of ids) {
                 const item = catalogItems.find(x => x.id === id);
                 if (!item) continue;
-                item.category = targetCat;
+
+                let currentCats = new Set(getItemCategories(item));
+
+                if (actionValue.startsWith("ADD_TAG:")) {
+                    const tagToAdd = actionValue.replace("ADD_TAG:", "");
+                    currentCats.add(tagToAdd);
+                } else if (actionValue.startsWith("REMOVE_TAG:")) {
+                    const tagToRemove = actionValue.replace("REMOVE_TAG:", "");
+                    currentCats.delete(tagToRemove);
+                } else if (actionValue.startsWith("SET_MAIN:")) {
+                    const rawMain = actionValue.replace("SET_MAIN:", "");
+                    const newMainCat = rawMain === "CUSTOM" ? customCatName : rawMain;
+                    // Conservamos las etiquetas especiales que ya tuviera (ej. Nueva Colección, Destacados) y cambiamos su tipo de prenda
+                    const keptSpecials = Array.from(currentCats).filter(c => specialTags.includes(c));
+                    currentCats = new Set([newMainCat, ...keptSpecials]);
+                } else if (actionValue === "SET_ONLY_TODO") {
+                    currentCats.clear();
+                }
+
+                const updatedCategories = Array.from(currentCats);
+                const primaryCat = updatedCategories.find(c => !specialTags.includes(c)) || updatedCategories[0] || "Todo";
+
+                item.categories = updatedCategories;
+                item.category = primaryCat;
 
                 if (isFirebaseConnected && db) {
                     try {
-                        await updateDoc(doc(db, "florens_catalogo", id), { category: targetCat });
+                        await updateDoc(doc(db, "florens_catalogo", id), {
+                            category: primaryCat,
+                            categories: updatedCategories
+                        });
                     } catch (e) {}
                 } else {
                     await saveLocalItem(item);
@@ -1879,8 +2038,10 @@
             }
 
             adminSelectedIds.clear();
+            const customInput = document.getElementById("adminBatchCustomCatInput");
+            if (customInput) customInput.value = "";
             renderAll();
-            showToast(`Prendas movidas a "${targetCat}"`);
+            showToast("¡Secciones actualizadas con éxito!");
         };
 
         window.deleteSingleItem = async function(id) {
